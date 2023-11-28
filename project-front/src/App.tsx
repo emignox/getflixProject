@@ -32,8 +32,8 @@ function App() {
       <input type="password" className="form-control" id="exampleInputPassword1"/>
     </div>
     
-    {/*rajoute un button ici*/}
-  </form>
+      <Button variant="primary" type="submit">Valider</Button>
+    </form>
 </div>
 
   )
