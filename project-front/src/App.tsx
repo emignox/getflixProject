@@ -31,11 +31,11 @@ function App() {
       <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
       <input type="password" className="form-control" id="exampleInputPassword1"/>
     </div>
-    
-    {/*rajoute un button ici*/}
-  </form>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <button type="button" className="btn btn-primary">Valider</button>
+    </div>
+    </form>
 </div>
-
   )
   
 }
