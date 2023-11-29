@@ -1,8 +1,8 @@
 body {
-    background: #e3f2fd
-  }
+  background-color: rgb(216, 216, 216);
+}
   
-  svg {
+  .text1 {
     font-family: 'Russo One', sans-serif;
     position: absolute; 
     width: 100%; height: 100%;
@@ -19,10 +19,10 @@ body {
       fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1);
       stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
     }
-    70%  {fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1); }
-    80%  {fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1); stroke-width: 3; }
+    70%  {fill: rgba(72,138,20,0); stroke: #80B3FF; }
+    80%  {fill: rgba(72,138,20,0); stroke: #80B3FF; stroke-width: 3; }
     100% {
-      fill: rgba(72,138,204,1); stroke: rgba(54,95,160,0); 
+      fill: #80B3FF; stroke: rgba(54,95,160,0); 
       stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
     }
   }
@@ -42,6 +42,10 @@ body {
       transform: translateX(-100%);
     }
   }
+ 
   .logo1{
-
+    position: absolute;
+    top: 0;
+    left: 37%;
+ 
   }
