@@ -1,7 +1,7 @@
 <?php
 
 header('Access-Control-Allow-Origin: http://localhost:5173');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Access-Control-Allow-Credentials: true');
 
@@ -23,6 +23,7 @@ try {
     exit;
 }
 
+
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -31,33 +32,31 @@ function test_input($data) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit;
-} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Handle actual POST request
+    exit; 
+} elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 
     $data = json_decode(file_get_contents("php://input"), true);
-    $username = test_input($data['username']);
-    $password = test_input($data['password']);
+    $userId = test_input($data['userId']); // Assuming userId is included in the request
 
-    if (empty($username) || empty($password)) {
-        echo json_encode(["message" => "Veuillez saisir un nom d'utilisateur et un mot de passe"]);
+    if (empty($userId)) {
+        echo json_encode(["message" => "Veuillez fournir l'ID de l'utilisateur à supprimer"]);
     } else {
-        $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $query = $conn->prepare("SELECT * FROM users WHERE username = ?");
-        $query->execute([$username]);
+        // Check if the user exists
+        $query = $conn->prepare("SELECT * FROM users WHERE id = ?");
+        $query->execute([$userId]);
         $user = $query->fetch();
 
-        if ($password === $user["password"]) {
-            $_SESSION['USERNAME'] = $username;
-            $_SESSION['ROLE'] = $user['role'];
-            echo json_encode(["message" => "Connexion réussie", "user" => $user]);
+        if (!$user) {
+            echo json_encode(["message" => "Utilisateur non trouvé"]);
         } else {
-            echo json_encode(["message" => "Nom d'utilisateur ou mot de passe incorrect"]);
+            // Delete the user from the database
+            $deleteQuery = $conn->prepare("DELETE FROM users WHERE id = ?");
+            $deleteQuery->execute([$userId]);
+
+            echo json_encode(["message" => "Utilisateur supprimé avec succès"]);
         }
     }
 } else {
     http_response_code(405); // Method Not Allowed
     echo json_encode(["error" => "Méthode non autorisée"]);
 }
-
-$conn = null;
