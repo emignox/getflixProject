@@ -1,7 +1,7 @@
 body {
   background-color: rgb(216, 216, 216);
 }
-  
+
   .text1 {
     font-family: 'Russo One', sans-serif;
     position: absolute; 
@@ -33,7 +33,7 @@ body {
     animation: slideOutLeft 6s forwards;
     animation-delay: 6s;
   }
-  
+
   @keyframes slideOutLeft {
     0% {
       transform: translateX(0);
