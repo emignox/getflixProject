@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './component/navbar'
-import Login from './pages/login';
+import Login from './Pages/login';
 import Jumbotron from './component/jumbotron';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Presentation from './pages/streamify';
+import Presentation from './Pages/streamify';
 
 function App() {
   return (
