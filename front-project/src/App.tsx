@@ -4,12 +4,15 @@ import Login from './Pages/login';
 import Jumbotron from './component/jumbotron';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Presentation from './Pages/streamify';
+import Privacy from './Pages/privacy';
+
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Presentation />} />
+      <Route path="/" element={<Privacy />} />
+        <Route path="/streamify" element={<Presentation />} />
         <Route path="/login" element={<Login />} />
         <Route path="/other" element={
           <>
