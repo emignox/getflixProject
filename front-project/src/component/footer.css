@@ -2,36 +2,7 @@
     background-color: #597DB2;
     color: #D8D8D8;
 }
-    
-    .text1 {
-      font-family: 'Russo One', sans-serif;
-      position: absolute; 
-      width: 25%;
-      height: auto;
-    }
-    svg text {
-      text-transform: uppercase;
-      animation: stroke 5s infinite alternate;
-      stroke-width: 2;
-      stroke: #365fa0;
-      font-size: 140px;
-    }
-    @keyframes stroke {
-      0%   {
-        fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1);
-        stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
-      }
-      70%  {fill: rgba(72,138,20,0); stroke: #80B3FF; }
-      80%  {fill: rgba(72,138,20,0); stroke: #80B3FF; stroke-width: 3; }
-      100% {
-        fill: #80B3FF; stroke: rgba(54,95,160,0); 
-        stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
-      }
-    }
+ 
 
-    .logo1{
-        position: absolute;
-        top: 60px;
-        left: 60px;
-     
-      }
+
+    
