@@ -3,7 +3,7 @@ import './login_singup.css'
 function login() {
 
   return (
-<div className='template d-flex justify-content-center align-items-center vh-100'>
+<div className='login-page template d-flex justify-content-center align-items-center vh-100'>
     <div className='col-md-6 h-100'>
         <div className='p-5 rounded h-100'>
             <form className='h-100 d-flex flex-column justify-content-center'>
@@ -29,7 +29,6 @@ function login() {
         <img src='assets/popcorn.jpg' alt='Description' className='img-fluid' />        
         </div>
 </div>
-
   )
 }
 
