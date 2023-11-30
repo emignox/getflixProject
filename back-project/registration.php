@@ -30,9 +30,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     $password = $data["password"];
     $role = $data["role"] ?? '';
    
+    $checkUserQuery = $conn->prepare("SELECT COUNT(*) FROM users WHERE username = ? OR email = ?");
+    $checkUserQuery->bind_param("ss", $username, $email); // Bind parameters
+    $checkUserQuery->execute();
+    $checkUserQuery->bind_result($userCount); // Bind result variable
+    $checkUserQuery->fetch();
+
+    if ($userCount > 0) {
+        echo createResponse('Error 409', 'Username or email already in use');
+        exit;
+    }
+
     try {
         $queryRegister = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
-        $queryRegister->execute([$username, $email, $password, $role]);
+        $queryRegister->bind_param("ssss", $username, $email, $password, $role); // Bind parameters
+        $queryRegister->execute();
         echo createResponse("200", "Successfully registered");
     } catch (PDOException $e) {
         error_log("Database Error: " . $e->getMessage());
