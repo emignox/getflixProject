@@ -7,22 +7,7 @@ header('Access-Control-Allow-Credentials: true');
 
 session_start();
 
-// MySQL Database Connection
-$host = "localhost";
-$user_name = "root";
-$user_password = "root";
-$database = "streamify";
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$database", $user_name, $user_password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo json_encode(["message" => "connected to the database"]);
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(["error" => "Database connection error: " . $e->getMessage()]);
-    exit;
-}
-
+require("./db_connection.php");
 
 function test_input($data) {
     $data = trim($data);
@@ -36,15 +21,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 } elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 
     $data = json_decode(file_get_contents("php://input"), true);
-    $userId = test_input($data['userId']); // Assuming userId is included in the request
+    $userIdToDelete = test_input($data['userId']); // Assuming userId is included in the request
+    //$usernameToDelete = test_input($data['username']); // Assuming username is included in the request
 
-    if (empty($userId)) {
+    if (empty($userId) /* empty($username) */) {
         echo json_encode(["message" => "Veuillez fournir l'ID de l'utilisateur à supprimer"]);
     } else {
         // Check if the user exists
         $query = $conn->prepare("SELECT * FROM users WHERE id = ?");
         $query->execute([$userId]);
         $user = $query->fetch();
+        /*
+        $query = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $query->execute([$username]);
+        $user = $query->fetch();  */
 
         if (!$user) {
             echo json_encode(["message" => "Utilisateur non trouvé"]);
@@ -52,6 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
             // Delete the user from the database
             $deleteQuery = $conn->prepare("DELETE FROM users WHERE id = ?");
             $deleteQuery->execute([$userId]);
+            /*
+            $deleteQuery = $conn->prepare("DELETE FROM users WHERE username = ?");
+            $deleteQuery->execute([$username]);   */
 
             echo json_encode(["message" => "Utilisateur supprimé avec succès"]);
         }
@@ -60,3 +53,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(405); // Method Not Allowed
     echo json_encode(["error" => "Méthode non autorisée"]);
 }
+
+
+
+/*
+  How to Connect:
+  ---------------
+  Frontend developers can connect to this endpoint using a DELETE request. They need to send a JSON payload with the user ID to delete.
+
+  Example using Axios in JavaScript:
+  ```javascript
+  const axios = require('axios'); // Make sure to install Axios: npm install axios
+
+  const userIdToDelete = id; // Replace with the actual user ID
+  or const usernameToDelete = username // Replace with the actual username
+
+  axios({
+    method: 'delete',
+    url: 'http://your-api-url/delete_user.php',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: {
+      userId: userIdToDelete,
+      username: usernameToDelete
+    },
+  })
+    .then(response => {
+      console.log('User deleted successfully:', response.data);
+    })
+    .catch(error => {
+      console.error('Error deleting user:', error.response.data);
+    });
+
+*/
