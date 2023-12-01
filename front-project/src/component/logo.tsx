@@ -1,18 +1,14 @@
-import './navbar.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-function NavScrollExample() {
-  return (
-    <Navbar expand="lg" className="cl ">
-      <Container fluid className='cl p-0 m-0'>
-        <Navbar.Brand  href="#"> <svg className="mx-3 my-3"
+
+
+function logo() {
+    return(
+        <div>  
+        <svg
+        className="logo2 m-1"
         xmlns="http://www.w3.org/2000/svg"
-        width="60"
-        height="60"
+        width="50"
+        height="50"
         viewBox="0 0 181 222"
         fill="none"
       >
@@ -25,35 +21,13 @@ function NavScrollExample() {
           fill="#130E0E"
         />
       </svg>
-      </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link   className='dim'  href="#action1">Home</Nav.Link>
-            <Nav.Link className='dim'  href="#action2">Movies</Nav.Link> 
-            <Nav.Link className='dim'  href="#action1">Series</Nav.Link>
-            <Nav.Link className='dim'  href="#action2">upcoming</Nav.Link>                    
-          </Nav>
-          <div className="container-fluid w-25">
-    <form className="d-flex">
-      <input className=" input form-control min  me-2  rounded-pill border-1  min  border-dark " type="search" placeholder="Search" aria-label="Search"/>
-    </form>
-  </div>
-  <div>
-    <button className="registration  px-3" type="submit">Log Out</button>
-    <FontAwesomeIcon icon={faUser} className=" mx-4" />
-  </div>
-  
-
-          
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+      <svg className="text1" viewBox="0 0 1320 300">
+        <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+          Streamify
+        </text>
+      </svg>
+      </div>
+      
+    );
 }
-
-export default NavScrollExample;
+export default logo;
