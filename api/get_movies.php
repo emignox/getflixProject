@@ -8,7 +8,9 @@ header('Content-Type: application/json');
 
 require("./db_connection.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit; 
+} elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $totalPages = 5;
     $allMovies = [];
 
