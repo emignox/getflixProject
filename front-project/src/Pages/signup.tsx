@@ -14,8 +14,16 @@ function signup() {
         <form className='h-100 d-flex flex-column justify-content-center'>
             <h3 className='text-center'>Sign Up</h3>
             <div className='mb-2'>
+                <label htmlFor='name'>Name</label>
+                <input type='text' placeholder='Enter your name' className='form-control'/>
+            </div>
+            <div className='mb-2'>
+                <label htmlFor='Firstname'>Firstname</label>
+                <input type='text' placeholder='Enter your firstname' className='form-control'/>
+            </div>
+            <div className='mb-2'>
                 <label htmlFor='username'>username</label>
-                <input type='text' placeholder='Enter your Username' className='form-control'/>
+                <input type='text' placeholder='Enter your username' className='form-control'/>
             </div>
             <div className='mb-2'>
                 <label htmlFor='email'>Email</label>
