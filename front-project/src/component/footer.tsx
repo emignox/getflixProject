@@ -27,7 +27,7 @@ export const Footer = () => {
               Streamify
             </p>
             <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBLink to="/">Privacy Policy</CDBLink>
+              <CDBLink to="../privacy">Privacy Policy</CDBLink>
               <CDBLink to="/">Cookies</CDBLink>
               <CDBLink to="/">Profil</CDBLink>
             </CDBBox>

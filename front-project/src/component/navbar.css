@@ -1,6 +1,7 @@
 .cl {
     background-image: linear-gradient(45deg,#4C6B99
-    ,#79a9ec);  height: 60px;
+    ,#79a9ec); height: 50px;
+
 }
 
 .dim {
@@ -41,5 +42,8 @@
     .min {
      position: relative;
      top: 30px;
+      }
+      .cl{
+        height: auto;
       }
 }
