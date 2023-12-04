@@ -12,7 +12,7 @@ const Footer = () => {
               </svg>
             </div>
             <div className="d-flex justify-content-center">
-              <button className="btn text-white">
+              <button className="btn">
                 <i className="fab fa-facebook-f"></i>
               </button>
               <button className="btn text-white mx-3">
