@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         exit;
     } 
     
+    $firstname = $data["firstname"];
+    $lastname = $data["lastname"];
     $username = $data["username"];
     $email = $data["email"];
     $password = $data["password"];
@@ -44,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     }
 
     try {
-        $queryRegister = $conn->prepare("INSERT INTO users (username, email, password, role, created_at) VALUES (?, ?, ?, ?, ?)");
-        $queryRegister->bind_param("sssss", $username, $email, $password, $role, $created_at); // Bind parameters
+        $queryRegister = $conn->prepare("INSERT INTO users (firstname, lastname, username, email, password, role, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $queryRegister->bind_param("sssssss", $firstname, $lastname, $username, $email, $password, $role, $created_at); // Bind parameters
         $queryRegister->execute();
         echo createResponse("200", "Successfully registered");
     } catch (PDOException $e) {
