@@ -10,6 +10,9 @@ import Home from './Pages/home';
 import Profile from './Pages/profile';
 import Username from './Pages/username';
 import './App.css';
+import ForgotPassword from './Pages/forgotPassword';
+import ResetPassword from './Pages/resetPassword';
+
 
 function App() {
   return (
@@ -23,8 +26,10 @@ function App() {
         <Route path="/footer" element={<Footer />} />
         <Route path="/streamify" element={<Presentation />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/other" element={
-          <>
+            <>
             <Navbar />
             <Jumbotron />
             {/* Altri componenti per il percorso /other */}
