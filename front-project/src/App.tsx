@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Presentation from './Pages/streamify';
 import Footer from './component/footer'
 import Privacy from './Pages/privacy';
+import ForgotPassword from './Pages/forgotPassword';
+import ResetPassword from './Pages/resetPassword';
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
         <Route path="/footer" element={<Footer />} />
         <Route path="/streamify" element={<Presentation />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/other" element={
-          <>
+            <>
             <Navbar />
             <Jumbotron />
             {/* Altri componenti per il percorso /other */}
