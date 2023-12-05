@@ -6,6 +6,19 @@ header('Access-Control-Allow-Credentials: true');
 
 include 'connect_db.php';
 
+/* Namespace alias. */
+/*use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;*/
+/* Include the Composer generated autoload.php file. */
+/*require 'C:\wamp64\www\getflixProject\phpmailer\vendor\autoload.php';*/
+/* If you installed PHPMailer without Composer do this instead: */
+/*
+require 'C:\PHPMailer\src\Exception.php';
+require 'C:\PHPMailer\src\PHPMailer.php';
+require 'C:\PHPMailer\src\SMTP.php';
+*/
+
+
 function createResponse($status, $message)
 {
     $response = [
@@ -46,9 +59,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     }
 
     try {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
         $queryRegister = $conn->prepare("INSERT INTO users (firstname, lastname, username, email, password, role, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $queryRegister->bind_param("sssssss", $firstname, $lastname, $username, $email, $password, $role, $created_at); // Bind parameters
+        $queryRegister->bind_param("sssssss", $firstname, $lastname, $username, $email, $hashedPassword, $role, $created_at); // Bind parameters
         $queryRegister->execute();
+        
+        /* Create a new PHPMailer object. Passing TRUE to the constructor enables exceptions. */
+        /*$mail = new PHPMailer(TRUE);*/
+
+        /* Set the mail sender. */
+        /*$mail->setFrom('', '');*/
+        /* Add a recipient. */
+        /*$mail->addAddress($email, $username);*/
+        /* Set the subject. */
+        /*$mail->Subject = 'Confirmation Email';*/
+        /* Set the mail message body. */
+        /*$mail->Body = 'Thank you for registering! Please click the following link to return on the website:';*/
+        /* Finally send the mail. */
+        /*$mail->send();*/
+        
+        
         echo createResponse("200", "Successfully registered");
     } catch (PDOException $e) {
         error_log("Database Error: " . $e->getMessage());
