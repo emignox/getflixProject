@@ -53,37 +53,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(405); // Method Not Allowed
     echo json_encode(["error" => "Méthode non autorisée"]);
 }
-
-
-
-/*
-  How to Connect:
-  ---------------
-  Frontend developers can connect to this endpoint using a DELETE request. They need to send a JSON payload with the user ID to delete.
-
-  Example using Axios in JavaScript:
-  ```javascript
-  const axios = require('axios'); // Make sure to install Axios: npm install axios
-
-  const userIdToDelete = id; // Replace with the actual user ID
-  or const usernameToDelete = username // Replace with the actual username
-
-  axios({
-    method: 'delete',
-    url: 'http://your-api-url/delete_user.php',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: {
-      userId: userIdToDelete,
-      username: usernameToDelete
-    },
-  })
-    .then(response => {
-      console.log('User deleted successfully:', response.data);
-    })
-    .catch(error => {
-      console.error('Error deleting user:', error.response.data);
-    });
-
-*/

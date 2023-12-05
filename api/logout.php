@@ -5,7 +5,7 @@ The frontend app can access this logout endpoint by making a GET request
 to something like http://localhost:8888/api/logout.php?action=logout
 */ 
 
-header('Access-Control-Allow-Origin: http://localhost:5173');
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Access-Control-Allow-Credentials: true');

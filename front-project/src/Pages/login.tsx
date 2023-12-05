@@ -1,5 +1,5 @@
 import './login_singup.css'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function login() {
 
   return (
@@ -20,7 +20,7 @@ function login() {
                     <button className='btn'>Log in</button>
                 </div>
                 <p className='text-end mt-2'>
-                    Forgot <a href=''>Password?</a><a href='signup' className='ms-2'>Sign up</a>
+                    Forgot <Link to={'/forgot-password'}>Password?</Link><a href='signup' className='ms-2'>Sign up</a>
                 </p>
             </form>
         </div>
