@@ -1,61 +1,57 @@
-import { CDBModalFooter, CDBLink, CDBBox, CDBBtn, CDBIcon} from 'cdbreact';
-import './footer.css'
+import './footer.css';
 
-export const Footer = () => {
+const Footer = () => {
   return (
-    <CDBModalFooter className="shadow">        
-      <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
-        <CDBBox display="flex" justifyContent="between" className="flex-wrap">
-          <CDBBox>
-            <CDBBox display="flex" className="mt-4" alignItems="center">
-           
-              <CDBBox display="flex" className="mt-5">
-                <CDBBtn flat color="white">
-                  <CDBIcon fab icon="facebook-f" />
-                </CDBBtn>
-                <CDBBtn flat color="white" className="mx-3">
-                  <CDBIcon fab icon="twitter" />
-                </CDBBtn>
-                <CDBBtn flat color="white" className="p-2">
-                  <CDBIcon fab icon="instagram" />
-                </CDBBtn>
-              </CDBBox>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              Streamify
-            </p>
-            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBLink to="/">Privacy Policy</CDBLink>
-              <CDBLink to="/">Cookies</CDBLink>
-              <CDBLink to="/">Profil</CDBLink>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              Help
-            </p>
-            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBLink to="/">Sign Up</CDBLink>
-              <CDBLink to="/">Sign In</CDBLink>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              Pages
-            </p>
-            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBLink to="/">Movie</CDBLink>
-              <CDBLink to="/">Tv Show</CDBLink>
-              <CDBLink to="/">Upcomming</CDBLink>
-            </CDBBox>
-          </CDBBox>
-        </CDBBox>
+    <div className="modal-footer shadow">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
+            <div className="d-flex">
+              <svg className="text1" viewBox="0 0 1320 300">
+                <text x="50%" y="50%" dy=".35em" text-anchor="middle">Streamify</text>
+              </svg>
+            </div>
+            <div className="d-flex justify-content-center">
+              <button className="btn">
+                <i className="fab fa-facebook-f"></i>
+              </button>
+              <button className="btn text-white mx-3">
+                <i className="fab fa-twitter"></i>
+              </button>
+              <button className="btn text-white p-2">
+                <i className="fab fa-instagram"></i>
+              </button>
+            </div>
+          </div>
+          <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
+            <p className="h5 mb-4" style={{ fontWeight: 600 }}>Streamify</p>
+            <div className="cursor-pointer">
+              <li><a className="link" href="/">Privacy Policy</a></li>
+              <li><a className="link" href="/">Cookies</a></li>
+              <li><a className="link" href="/">Profil</a></li>
+            </div>
+          </div>
+          <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
+            <p className="h5 mb-4" style={{ fontWeight: 600 }}>Help</p>
+            <div className="cursor-pointer">
+              <li><a className="link" href="/">Sign Up</a></li>
+              <li><a className="link" href="/">Sign In</a></li>
+            </div>
+          </div>
+          <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
+            <p className="h5 mb-4" style={{ fontWeight: 600 }}>Pages</p>
+            <div className="cursor-pointer">
+              <li><a className="link" href="/">Home</a></li>
+              <li><a className="link" href="/">Movie</a></li>
+              <li><a className="link" href="/">Tv Show</a></li>
+              <li><a className="link" href="/">Upcoming</a></li>
+            </div>
+          </div>
+        </div>
         <small className="text-center mt-5">&copy; Streamify, 2023. All rights reserved.</small>
-      </CDBBox>
-    </CDBModalFooter>
+      </div>
+    </div>
   );
 };
 
-export default Footer
+export default Footer;
