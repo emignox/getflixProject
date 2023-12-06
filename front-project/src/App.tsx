@@ -18,8 +18,8 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/username" element={<Username />} />
-      <Route path="/" element={<Presentation />} />
+      <Route path="/" element={<Username />} />
+      <Route path="/presentation" element={<Presentation />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/home" element={<Home />} />
       <Route path="/privacy" element={<Privacy />} />
