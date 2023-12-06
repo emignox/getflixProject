@@ -19,10 +19,11 @@ if ($response !== false) {
     $top_rated_series = $data['results'];
 
     foreach ($top_rated_series as $series) {
+        $series_id = $series['id'];
         $series_name = $series['name'];
         $series_rating = $series['vote_average'];
 
-        echo "Name: $series_name, Rating: $series_rating\n";
+        echo "Series ID: $series_id, Name: $series_name, Rating: $series_rating\n";
     }
 } else {
     echo "Error fetching data from API\n";
