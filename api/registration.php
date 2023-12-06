@@ -10,13 +10,12 @@ include 'connect_db.php';
 /*use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;*/
 /* Include the Composer generated autoload.php file. */
-/*require 'C:\wamp64\www\getflixProject\phpmailer\vendor\autoload.php';*/
+/*require 'C:/wamp64/www/getflixProject/vendor/autoload.php';*/
 /* If you installed PHPMailer without Composer do this instead: */
-/*
-require 'C:\PHPMailer\src\Exception.php';
+/*require 'C:\PHPMailer\src\Exception.php';
 require 'C:\PHPMailer\src\PHPMailer.php';
-require 'C:\PHPMailer\src\SMTP.php';
-*/
+require 'C:\PHPMailer\src\SMTP.php';*/
+
 
 
 function createResponse($status, $message)
@@ -66,12 +65,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         $queryRegister->execute();
         
         /* Create a new PHPMailer object. Passing TRUE to the constructor enables exceptions. */
-        /*$mail = new PHPMailer(TRUE);*/
+        /*$mail = new PHPMailer(TRUE);
+
+        $mail->SMTPDebug = 0;                                    // Enable verbose debug output
+        $mail->isSMTP();                                         // Send using SMTP
+        $mail->Host       = 'smtp.hotmail.com';                    // Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                // Enable SMTP authentication
+        $mail->Username   = getenv('SMTP_USERNAME');             // SMTP username
+        $mail->Password   = getenv('SMTP_PASSWORD');             // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;      // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = 587;*/
 
         /* Set the mail sender. */
-        /*$mail->setFrom('', '');*/
+        /*$mail->setFrom('emmarine@hotmail.com', 'Streamify');*/
         /* Add a recipient. */
-        /*$mail->addAddress($email, $username);*/
+        /*$mail->addAddress($email);*/
         /* Set the subject. */
         /*$mail->Subject = 'Confirmation Email';*/
         /* Set the mail message body. */
