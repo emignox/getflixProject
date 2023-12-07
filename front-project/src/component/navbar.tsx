@@ -4,9 +4,23 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavScrollExample() {
+
+  const navigate = useNavigate();
+
+  // Function to handle logout
+  const handleLogout = () => {
+    // Clear the token and user information from local storage
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('role');
+
+    // Navigate to the login page or another appropriate route
+    navigate('/login');
+  };
+
   return (
     <Navbar expand="lg" className="cl ">
       <Container fluid className="cl p-0 m-0">
@@ -60,7 +74,7 @@ function NavScrollExample() {
             </form>
           </div>
           <div className=" d-flex">
-            <button className="registration  px-3" type="submit">
+            <button className="registration  px-3" type="button" onClick={handleLogout}>
               Log Out
             </button>
             <Link className="nav-link" to="pages/profile">
