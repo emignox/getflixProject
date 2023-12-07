@@ -63,7 +63,7 @@ function NavScrollExample() {
             <button className="registration  px-3" type="submit">
               Log Out
             </button>
-            <Link className="nav-link" to="pages/profile">
+            <Link className="nav-link" to="./profile">
               <FontAwesomeIcon icon={faUser} className=" mx-4 fs-6" />
             </Link>
           </div>
