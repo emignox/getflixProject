@@ -11,14 +11,14 @@ interface Movie {
   vote_average: number;
 }
 
-const SingleMovie  = () => {
+const SingleMovie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<Movie | null>(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await axios.get('http://localhost:8888/getflixProject/api/get_movie_by_id.php?id=${id}');
+        const response = await axios.get(`http://localhost:8888/getflixProject/api/get_movie_by_id.php?id=${id}`);
         setMovie(response.data);
       } catch (error) {
         console.error('Error fetching movie:', error);
@@ -33,14 +33,14 @@ const SingleMovie  = () => {
   }
 
   return (
-    <div>
+    <>
       <h2>{movie.title}</h2>
-      <img src={'http://image.tmdb.org/t/p/w500${movie.poster_path}} alt={movie.title'} />
-      <p>{movie.overview}</p>
+      <img src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
       <p>Release Date: {movie.release_date}</p>
       <p>Vote Average: {movie.vote_average}</p>
-    </div>
+      <p>{movie.overview}</p>      
+    </>
   );
 };
 
-export default SingleMovie; 
+export default SingleMovie;
