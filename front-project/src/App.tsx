@@ -12,8 +12,6 @@ import Username from './Pages/username';
 import './App.css';
 import ForgotPassword from './Pages/forgotPassword';
 import ResetPassword from './Pages/resetPassword';
-import Email from './Pages/email';
-import Password from './Pages/password';
 import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
 
@@ -23,18 +21,16 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route  path='/movies' element={ <Movies /> } />
           <Route path="/username" element={<Username />} />
           <Route path="/" element={<Presentation />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/home" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/footer" element={<Footer />} />
-          <Route path="/streamify" element={<Presentation />} />
+          <Route  path='/movies' element={ <Movies /> } />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route  path='/' element={ <Movies /> } />
           <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
           <Route path="/other" element={
               <>

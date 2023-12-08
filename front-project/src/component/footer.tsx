@@ -7,12 +7,9 @@ const Footer = () => {
         <div className="row">
           <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
             <div className="d-flex">
-              <svg className="text1" viewBox="0 0 1320 300">
-                <text x="50%" y="50%" dy=".35em" text-anchor="middle">Streamify</text>
-              </svg>
             </div>
             <div className="d-flex justify-content-center">
-              <button className="btn">
+              <button className="btn text-white">
                 <i className="fab fa-facebook-f"></i>
               </button>
               <button className="btn text-white mx-3">

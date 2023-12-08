@@ -18,8 +18,8 @@ function Presentation() {
       <svg
         className="logo1"
         xmlns="http://www.w3.org/2000/svg"
-        width="100"
-        height="100"
+        width=""
+        height=""
         viewBox="0 0 181 222"
         fill="none"
       >
@@ -32,7 +32,7 @@ function Presentation() {
           fill="#130E0E"
         />
       </svg>
-      <svg viewBox="0 0 1320 300" style={{fontSize:'300px'}}>
+      <svg  className="svg1" viewBox="0 0 1320 300" style={{}}>
         <text x="50%" y="50%" dy=".35em" text-anchor="middle">
           streamify
         </text>
