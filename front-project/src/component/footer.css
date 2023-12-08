@@ -8,18 +8,7 @@
     text-decoration: none;
 }
 
-.text1 {
-    font-family: 'Russo One', sans-serif;
-    position: relative;
-    width: 100px; height: 100%;
-  }
-  svg text {
-    text-transform: uppercase;
-    animation: stroke 5s infinite alternate;
-    stroke-width: 2;
-    stroke: #365fa0;
-    font-size: 10px;
-  }
+
 
 .btn {
   background-color: #80B3FF;
