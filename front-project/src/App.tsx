@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './component/navbar'
 import Login from './Pages/login';
+import Signup from './Pages/signup';
 import Jumbotron from './component/jumbotron';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Presentation from './Pages/streamify';
@@ -29,6 +30,8 @@ function App() {
           <Route path="/footer" element={<Footer />} />
           <Route  path='/movies' element={ <Movies /> } />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/movies/watch/:id" element={ <SingleMovie /> } />

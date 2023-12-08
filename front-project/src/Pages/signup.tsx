@@ -1,12 +1,10 @@
 // import { Link } from 'react-router-dom';
-import './login_singup.css'
-
+import "./login_singup.css"
 
 function signup() {
-
   return (
-<body className="overflow-hidden">
-  <div className='template d-flex justify-content-center align-items-center vh-100'>
+    <body className="overflow-hidden">
+      <div className='template d-flex justify-content-center align-items-center vh-100'>
     <div className='col-md-6 d- none d-flex align-items-center h-100'>
       <img src='assets/popcorn2.jpg' alt='Description' className='img-fluid' />
     </div>
