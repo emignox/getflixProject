@@ -21,6 +21,7 @@ function App() {
     <>
       <Router>
         <Routes>
+        <Route  path='/movies' element={ <Movies /> } />
           <Route path="/username" element={<Username />} />
           <Route path="/" element={<Presentation />} />
           <Route path="/profile" element={<Profile />} />
@@ -31,7 +32,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route  path='/movies' element={ <Movies /> } />
+          <Route  path='/' element={ <Movies /> } />
           <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
           <Route path="/other" element={
               <>
