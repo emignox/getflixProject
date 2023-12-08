@@ -12,6 +12,8 @@ import Username from './Pages/username';
 import './App.css';
 import ForgotPassword from './Pages/forgotPassword';
 import ResetPassword from './Pages/resetPassword';
+import Email from './Pages/email';
+import Password from './Pages/password';
 import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
 
