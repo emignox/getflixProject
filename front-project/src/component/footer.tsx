@@ -2,7 +2,7 @@ import './footer.css';
 
 const Footer = () => {
   return (
-    <div className="modal-footer shadow">
+    <div className="modal-footer shadow ">
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
