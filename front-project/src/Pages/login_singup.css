@@ -1,20 +1,9 @@
-.login-page {
-    animation: fadeIn 2s;
-  }
-  
-  @keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-  }
-
-
 .template {
-    background-color: #80B3FF;
+    background-color: #53bb90;
 }
-
 .p-5 {
-    background-color: #80B3FF;
-    color: black;
+    background-color: #53bb90;
+    color: #0071b8;
 }
 
 .btn {
@@ -22,25 +11,20 @@
     padding: 10px;
     font-family: arial;
     font-size: 1em;
-    color: #000000;
-    background-color: #80B3FF;
+    color: #0071b8;
+    background-color: #53bb90;
     border-radius: 12px;
+    
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
-    border: 4px solid #597DB2;
-    box-shadow: 3px 3px 12px #80B3FF;
-    -webkit-box-shadow: 3px 3px 12px #80B3FF;
-    -moz-box-shadow: 3px 3px 12px #80B3FF;
+    border: 4px solid #0071b8;
  }
     
 .btn:hover {
     padding: 10px;
-    color: #FFFFFF;
-    background-color: #597DB2;
-    border: 4px solid #80B3FF;
-    box-shadow: 1px 1px 4px #777777;
-    -webkit-box-shadow: 1px 1px 4px #777777;
-    -moz-box-shadow: 1px 1px 4px #777777;
+    color: #53bb90;
+    background-color: #0071b8;
+    border: 4px solid #53bb90;
 }
 
 a {

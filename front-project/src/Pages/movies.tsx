@@ -16,21 +16,26 @@ interface Movie {
 
 function Movies() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const apiUrl = 'http://localhost:8888/getflixProject/api/get_movies.php';
+  
 
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl);
         const data = response.data;
 
-        console.log('Response data:', data);
+        console.log("response", response)
+
+        // console.log('Response data:', data);
 
         if (data && data.movies) {
           setMovies(data.movies);
         } else {
-          console.error('Invalid data structure received from the server');
+          // console.error('Invalid data structure received from the server');
         }
       } catch (error) {
         console.error('Error fetching movies:', error);
@@ -40,26 +45,36 @@ function Movies() {
     fetchData();
   }, []);
 
+  const renderStars = (rating: number) => {
+    const roundedRating = Math.round(rating); // Arrondir à l'entier le plus proche
+    const starCount = Math.floor(roundedRating / 2); // Divise par 2 pour obtenir un maximum de 5 étoiles
+  
+    const fullStars = Array.from({ length: starCount }, (_, index) => (
+      <span key={index} className="gold-star">&#9733;</span>
+    ));
+    
+    return [fullStars];
+  };
+  
+  
+  
   return (
     <>
       <Navbar />
-      <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Movies</h1>
+      <h1 className='titreMovies' style={{ textAlign: 'center', marginTop: '2rem' }}>Movies</h1>
       <div className='container'>
         {movies.map((movie) => (
-          <div key={movie.id} className='card'>
-            {/* Use Link to navigate to SingleMovie with movie ID */}
-            <Link to={`/movies/watch/${movie.id}`}>
-              <h2>{movie.title}</h2>
-            </Link>
+          <Link key={movie.id} to={`/movies/watch/${movie.id}`} className='card movie-link'>
             <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} className='img' />
-            <p>Release Date: {movie.release_date}</p>
-            <p>Vote Average: {movie.vote_average}</p>
-          </div>
+            <h5 className='movie-title'>{movie.title}</h5>
+            <p className='rating'>Rating: {renderStars(movie.vote_average)}</p>          
+          </Link>
         ))}
       </div>
       <Footer />
     </>
   );
 }
+
 
 export default Movies;

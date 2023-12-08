@@ -1,4 +1,4 @@
-import './login_singup.css'
+import "./login_singup.css"
 import { Link } from 'react-router-dom';
 function login() {
 
