@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../component/presentation.css";
 
 function Presentation() {
@@ -7,19 +7,19 @@ function Presentation() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('./login');
+      navigate("login");
     }, 9000); // Cambia questo valore per farlo coincidere con la durata dell'animazione CSS
 
     return () => clearTimeout(timer); // Pulisce il timer se il componente viene smontato
   }, [navigate]);
 
   return (
-    
     <div className="presentation ">
-          <svg className="logo1"
+      <svg
+        className="logo1"
         xmlns="http://www.w3.org/2000/svg"
-        width="300"
-        height="300"
+        width=""
+        height=""
         viewBox="0 0 181 222"
         fill="none"
       >
@@ -32,9 +32,9 @@ function Presentation() {
           fill="#130E0E"
         />
       </svg>
-      <svg className="text1" viewBox="0 0 1320 300">
+      <svg  className="svg1" viewBox="0 0 1320 300" style={{}}>
         <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-            Streamify
+          streamify
         </text>
       </svg>
     </div>

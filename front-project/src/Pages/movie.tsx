@@ -38,7 +38,7 @@ const SingleMovie = () => {
       <img src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
       <p>Release Date: {movie.release_date}</p>
       <p>Vote Average: {movie.vote_average}</p>
-      <p>{movie.overview}</p>      
+      <p>{movie.overview}</p>
     </>
   );
 };

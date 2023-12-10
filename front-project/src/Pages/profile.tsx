@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../component/navbar";
 import Footer from "../component/footer";
 import Col from "react-bootstrap/Col";
@@ -29,7 +29,7 @@ function FormTextExample() {
       <Container>
         <Row>
           <Col xs={6} md={4} className="mx-auto mt-5">
-            <Link className="nav-link  edit " to="login">
+            <Link className="nav-link  edit " to="/username">
               change your access data{" "}
             </Link>
             <Image

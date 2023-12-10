@@ -24,9 +24,7 @@ function Movies() {
       try {
         const response = await axios.get(apiUrl);
         const data = response.data;
-
-        console.log('Response data:', data);
-
+        //console.log('Response data:', data);
         if (data && data.movies) {
           setMovies(data.movies);
         } else {

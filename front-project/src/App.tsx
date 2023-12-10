@@ -27,11 +27,10 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/footer" element={<Footer />} />
-          <Route path="/streamify" element={<Presentation />} />
+          <Route  path='/movies' element={ <Movies /> } />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route  path='/movies' element={ <Movies /> } />
           <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
           <Route path="/other" element={
               <>

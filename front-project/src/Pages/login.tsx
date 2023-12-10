@@ -3,10 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Login() {
-  // State for storing token
-  const [token, setToken] = useState('');
 
-  // Other state variables as before
+  const [token, setToken] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,7 +20,7 @@ function Login() {
   }, [navigate]);
 
   // Function to handle login
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: any) => {
     e.preventDefault();
 
     try {
@@ -66,7 +64,7 @@ function Login() {
   };
 
   return (
-    <body className="overflow-hidden">
+    <div className="overflow-hidden">
       <div className='login-page template d-flex justify-content-center align-items-center vh-100'>
         <div className='col-md-6 col-12 d-flex flex-column h-100'>
           <div className='p-5 flex-fill'>
@@ -117,7 +115,7 @@ function Login() {
           </div>
           )}
       </div>
-    </body>
+    </div>
   );
 }
 

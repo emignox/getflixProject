@@ -1,18 +1,19 @@
 <?php
 
-require 'vendor/autoload.php';
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 header('Access-Control-Allow-Credentials: true');
 header('Content-Type: application/json');
 
+require 'vendor/autoload.php';
+
 require './vendor/phpmailer/phpmailer/src/Exception.php';
 require './vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require './vendor/phpmailer/phpmailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
@@ -29,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     $mailContent = "Click the following link to reset your password: $resetLink";
 
     $mail = new PHPMailer(true);
+
+    consoe
 
     try {
         // Server settings
@@ -87,4 +90,5 @@ function saveResetToken($email, $resetToken) {
         echo json_encode(["message" => "Error saving reset token and expiration timestamp"]);
     }
 }
+
 
