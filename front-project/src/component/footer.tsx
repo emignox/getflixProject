@@ -2,20 +2,20 @@ import './footer.css';
 
 const Footer = () => {
   return (
-    <div className="modal-footer shadow">
+    <div className="modal-footer shadow ">
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
             <div className="d-flex">
             </div>
             <div className="d-flex justify-content-center">
-              <button className="btn text-white">
+              <button className="btn">
                 <i className="fab fa-facebook-f"></i>
               </button>
-              <button className="btn text-white mx-3">
+              <button className="btn mx-3">
                 <i className="fab fa-twitter"></i>
               </button>
-              <button className="btn text-white p-2">
+              <button className="btn p-2">
                 <i className="fab fa-instagram"></i>
               </button>
             </div>

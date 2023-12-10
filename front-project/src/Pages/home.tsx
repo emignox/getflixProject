@@ -7,8 +7,7 @@ function home() {
     <div>
       <Navbar />
         <Jumbotron />
-        <Footer />
-
+      <Footer />
 
     </div>
   );
