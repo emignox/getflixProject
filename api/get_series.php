@@ -6,7 +6,7 @@ header('Access-Control-Allow-Credentials: true');
 
 include 'connect_db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+/*if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt = $conn->query("SELECT * FROM series");
@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 } else {
     http_response_code(405);
     echo json_encode(["error" => "Only GET requests are allowed"]);
-}
+}*/
 
-/*if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $totalPages = 5;
@@ -46,5 +46,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     echo json_encode(["series" => $allSeries, "message" => "Pages fetched successfully"]);
 } else {
     echo json_encode(["error" => "Invalid request method"]);
-}*/
+}
 ?>
