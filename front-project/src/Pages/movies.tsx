@@ -27,15 +27,11 @@ function Movies() {
       try {
         const response = await axios.get(apiUrl);
         const data = response.data;
-
-        console.log("response", response)
-
-        // console.log('Response data:', data);
-
+        //console.log('Response data:', data);
         if (data && data.movies) {
           setMovies(data.movies);
         } else {
-          // console.error('Invalid data structure received from the server');
+          console.error('Invalid data structure received from the server');
         }
       } catch (error) {
         console.error('Error fetching movies:', error);
@@ -55,7 +51,6 @@ function Movies() {
     
     return [fullStars];
   };
-  
   
   
   return (
