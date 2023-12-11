@@ -16,6 +16,8 @@ import ResetPassword from './Pages/resetPassword';
 import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
 import Slider from './component/slider';
+import Signup from './Pages/signup';
+//import PrivateRoute from './component/PrivateRoute';
 
 
 function App() {
@@ -34,7 +36,6 @@ function App() {
           <Route  path='/movies' element={ <Movies /> } />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
@@ -52,3 +53,41 @@ function App() {
 }
 
 export default App;
+
+
+
+/*  Private routes  */
+
+/*
+function App() {
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route element={<PrivateRoute/>}>
+            <Route path='/username' element={<Username/>}/>
+            <Route path='/home' element={<Home/>}/>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/footer" element={<Footer />} />
+            <Route  path='/movies' element={ <Movies /> } />
+            <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
+            <Route path="/other" element={
+              <>
+                <Navbar />
+                <Jumbotron />
+              </>
+            } />
+          </Route>
+
+          <Route path="/" element={<Presentation />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />          
+        </Routes>
+      </Router>
+    </>
+  )
+}
+*/

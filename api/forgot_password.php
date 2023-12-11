@@ -31,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
     $mail = new PHPMailer(true);
 
+    consoe
+
     try {
         // Server settings
         $mail->SMTPDebug = 0;                                    // Enable verbose debug output
