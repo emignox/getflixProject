@@ -9,6 +9,18 @@ include 'connect_db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $stmt = $conn->query("SELECT * FROM series");
+    $series = $stmt->fetch_all(PDO::FETCH_ASSOC);
+
+    echo json_encode(["series" => $series]);
+} else {
+    http_response_code(405);
+    echo json_encode(["error" => "Only GET requests are allowed"]);
+}
+
+/*if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit; 
+} elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $totalPages = 5;
     $allSeries = [];
 
@@ -34,4 +46,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     echo json_encode(["series" => $allSeries, "message" => "Pages fetched successfully"]);
 } else {
     echo json_encode(["error" => "Invalid request method"]);
-}
+} */
+?>
