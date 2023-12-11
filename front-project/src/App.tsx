@@ -16,7 +16,6 @@ import ResetPassword from './Pages/resetPassword';
 import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
 import Slider from './component/slider';
-import Signup from './Pages/signup';
 //import PrivateRoute from './component/PrivateRoute';
 
 

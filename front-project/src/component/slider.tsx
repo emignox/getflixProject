@@ -68,7 +68,7 @@ function MovieSlider() {
 
   return (
     <>
-    <h1 className='titreMovies mov  ' style={{ textAlign: 'center', marginTop: '2rem', color:'#53bb90', fontSize:'40px' }} >Movies</h1>
+    <h1 className='titreMovies mov  ' style={{ textAlign: 'center', marginTop: '2rem', color:'#', fontSize:'40px' }} >Movies</h1>
     <div className='container bg-white' >
       {movies.slice(currentSlide * moviesPerSlide, (currentSlide + 1) * moviesPerSlide).map((movie, index) => (
         <div key={movie.id} className={currentSlide === index ? 'slide-in' : 'slide-out'}>
