@@ -1,0 +1,21 @@
+.modal-footer {
+    background-color: #597DB2;
+    color: #D8D8D8;
+}
+
+.link {
+    color: #D8D8D8;
+    text-decoration: none;
+}
+
+
+
+.btn {
+  background-color: #80B3FF;
+  color: #D8D8D8;
+}
+    
+.btn:hover {
+  background-color: #D8D8D8;
+  color: #80B3FF;
+}

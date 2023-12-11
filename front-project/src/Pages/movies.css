@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(216, 216, 216);
+    border: none;
+    gap: 1rem;
+    margin: 4rem auto;
+    padding: auto;
+}
+
+.card {
+    width: 300px;
+    background-color: rgb(69, 107, 163);
+    border: none;
+    padding: 2px;
+    color: #fff;
+}
+
+
