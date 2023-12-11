@@ -15,6 +15,7 @@ import ForgotPassword from './Pages/forgotPassword';
 import ResetPassword from './Pages/resetPassword';
 import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
+import Slider from './component/slider';
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
     <>
       <Router>
         <Routes>
+        <Route path="/" element={<Slider />} />
+
           <Route path="/username" element={<Username />} />
           <Route path="/" element={<Presentation />} />
           <Route path="/profile" element={<Profile />} />

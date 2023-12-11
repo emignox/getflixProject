@@ -28,16 +28,16 @@ function NavScrollExample() {
               style={{
                 color: "#53bb90 ",
               }}
-              href="../home.tsx"
+              href="../home"
             >
              HOME
             </Nav.Link>
-            <Nav.Link className="dim mx-3" href="#action2"  style={{
+            <Nav.Link className="dim mx-3" href="../movies"  style={{
                 color: "#53bb90 ",
               }}>
               MOVIES
             </Nav.Link>
-            <Nav.Link className="dim mx-3" href="#action1"  style={{
+            <Nav.Link className="dim mx-3" href=""  style={{
                 color: "#53bb90 ",
               }}>
               SERIES
