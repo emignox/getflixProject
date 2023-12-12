@@ -1,3 +1,6 @@
+
+
+
 import { useState, useEffect } from 'react'; 
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -18,7 +21,7 @@ interface Movie {
 function MovieSlider() {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [currentSlide, setCurrentSlide] = useState(0);
-    const moviesPerSlide = 5;
+    const moviesPerSlide =  window.innerWidth < 500 ? 2 : 5;
   
     useEffect(() => {
       const apiUrl = 'http://localhost:8888/getflixProject/api/get_movies.php';
@@ -68,8 +71,8 @@ function MovieSlider() {
 
   return (
     <>
-    <h1 className='titreMovies mov  ' style={{ textAlign: 'center', marginTop: '2rem', color:'#', fontSize:'40px' }} >Movies</h1>
-    <div className='container bg-white' >
+    <h1 className='titreMovies mov  ' style={{ textAlign: 'center', marginTop: '2rem', color:'#0071b8', fontSize:'40px' }} >Movies</h1>
+    <div className='container slider-container bg-white justify-content-center' >
       {movies.slice(currentSlide * moviesPerSlide, (currentSlide + 1) * moviesPerSlide).map((movie, index) => (
         <div key={movie.id} className={currentSlide === index ? 'slide-in' : 'slide-out'}>
           <Link to={`/movies/watch/${movie.id}`} className='card movie-link '>
@@ -81,7 +84,8 @@ function MovieSlider() {
       ))}
       </div>
       <div className='d-flex justify-content-between '>
-      <button  className='previous  bg-transparent border-0 rounded-4 mb-5 fs-1 'onClick={prevSlide}><FontAwesomeIcon icon={faChevronLeft} /> </button>
+      <button  className='previous  bg-transparent border-0 rounded-4 mb-5 fs-1 'onClick={prevSlide}   disabled={currentSlide === 0}
+><FontAwesomeIcon icon={faChevronLeft} /> </button>
       <button className='next border-0 bg-transparent rounded-4 mb-5 fs-1 ' onClick={nextSlide}><FontAwesomeIcon icon={faChevronRight} /></button>
         </div>
 
