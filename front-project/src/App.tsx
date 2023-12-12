@@ -15,6 +15,8 @@ import ForgotPassword from './Pages/forgotPassword';
 import ResetPassword from './Pages/resetPassword';
 import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
+import Slider from './component/slider';
+import SeriesSlider from './component/series_component';
 //import PrivateRoute from './component/PrivateRoute';
 
 
@@ -23,6 +25,8 @@ function App() {
     <>
       <Router>
         <Routes>
+        <Route path="/" element={<SeriesSlider />} />
+        <Route path="/slider" element={<Slider />} />
           <Route path="/username" element={<Username />} />
           <Route path="/" element={<Presentation />} />
           <Route path="/profile" element={<Profile />} />

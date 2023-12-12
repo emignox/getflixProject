@@ -1,11 +1,17 @@
-.container {
+.bodyMovie {
+  background-color: #53bb90;
+}
+.g-4 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgb(216, 216, 216);
+    background-color: white;
     gap: 1rem;
-    margin: 4rem auto;
-    padding: auto;
+    margin: 4rem 2rem; 
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 2rem; 
+    border-radius: 5%;
   }
   
   .card {
@@ -62,4 +68,8 @@
   
   .gold-star {
     color: gold;
+  }
+
+  .titreMovies {
+    color: #0071b8;
   }
