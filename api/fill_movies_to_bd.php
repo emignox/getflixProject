@@ -1,7 +1,13 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Credentials: true');
+header('Content-Type: application/json');
+
 // MySQL Database Connection
-//require './db_connection.php';
+require './db_connection.php';
 
 $totalPages = 5;
 

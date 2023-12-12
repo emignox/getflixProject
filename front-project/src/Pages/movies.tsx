@@ -17,8 +17,6 @@ interface Movie {
 
 function Movies() {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
 
   useEffect(() => {
     const apiUrl = 'http://localhost:8888/getflixProject/api/get_movies.php';

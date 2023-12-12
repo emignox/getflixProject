@@ -7,7 +7,7 @@ header('Access-Control-Allow-Credentials: true');
 header('Content-Type: application/json');
 
 
-require("./db_connection.php");
+//require("./db_connection.php");
 
 /*
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
