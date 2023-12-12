@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 interface Movie {
   id: number;
   title: string;
@@ -23,9 +25,10 @@ function Jumbotron() {
         console.log("Response data:", data);
 
         if (data && data.movies && data.movies.length > 0) {
-          setMovie(data.movies[0]); // Imposta il primo film
+          const randomIndex = Math.floor(Math.random() * data.movies.length);
+          setMovie(data.movies[randomIndex]); // Imposta un film casuale
           console.log(
-            `Image URL: https://image.tmdb.org/t/p/w300${data.movies[0].poster_path}`
+            `Image URL: https://image.tmdb.org/t/p/w780${data.movies[randomIndex].poster_path}`
           );
         } else {
           console.error("Invalid data structure received from the server");
@@ -38,25 +41,36 @@ function Jumbotron() {
     fetchData();
   }, []);
 
+  const renderStars = (rating: number) => {
+    const roundedRating = Math.round(rating);
+    const starCount = Math.floor(roundedRating / 2);
+
+    return Array.from({ length: starCount }, (_, index) => (
+      <span key={index} className="gold-star">&#9733;</span>
+    ));
+  };
+
   return (
     <div
       className="jumbotron d-flex align-items-center"
-      style={{ height: "90vh", position: "relative" }}
+      style={{ height: "100vh", position: "relative" }}
     >
-      <div className="col-10 video-container d-flex justify-content-center">
+      <div className="col-10 video-container d-flex   justify-content-center">
         {movie && (
           <>
-            <div className="row" style={{ position: "absolute", zIndex: 5 }}>
+            <div className="row " style={{ position: "absolute", zIndex: 5 }}>
               <h2
                 className="mt-3 "
                 style={{
                   color: " #53bb90",
-                  fontSize: "60px",
+                  fontSize: "40px",
                   fontWeight: 600,
                 }}
               >
                 {movie.title}
               </h2>
+            
+
               <p
                 style={{
                   color: "#0071b8",
@@ -67,7 +81,10 @@ function Jumbotron() {
                 Release Date: {movie.release_date}
               </p>
               <p style={{ color: "#0071b8", fontSize: "20px" }}>
-                Vote Average: {movie.vote_average}
+                Vote Average:{renderStars(movie.vote_average)} <br />
+                <Link to={`/movie/${movie.id}`} className="btn btn-primary  mt-2 " style={{
+                width: "200px",
+              }}>Play Now</Link>
               </p>
             </div>
             <div
