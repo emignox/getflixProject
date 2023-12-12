@@ -10,17 +10,24 @@ import { useEffect, useRef, useState } from "react";
 import axios from 'axios';
 
 
+interface Movie {
+  id: number;
+  title: string;
+  vote_average: number;
+  poster_path: string;
+}
+
 function NavScrollExample() {
-  const [movies, setMovies] = useState([]);
-  const [filtered, setFiltered] = useState([]);
-  const [search, setSearch] = useState("");
-  const searchRef = useRef();
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [filtered, setFiltered] = useState<Movie[]>([]);
+  const [search, setSearch] = useState<string>("");
+  const searchRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get("http://localhost:8888/getflixProject/api/get_movies.php");
+        const response = await axios.get<{ movies: Movie[] }>("http://localhost:8888/getflixProject/api/get_movies.php");
         const data = response.data;
         if (Array.isArray(data.movies)) {
           setMovies(data.movies);
@@ -43,29 +50,26 @@ function NavScrollExample() {
     );
   }, [search, movies]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputText = e.target.value;
     setSearch(inputText);
   };
 
-  const renderStars = (rating: number) => {
-    const roundedRating = Math.round(rating); // Arrondir à l'entier le plus proche
-    const starCount = Math.floor(roundedRating / 2); // Divise par 2 pour obtenir un maximum de 5 étoiles
-  
+  const renderStars = (rating: number): JSX.Element[] => {
+    const roundedRating = Math.round(rating);
+    const starCount = Math.floor(roundedRating / 2);
+
     const fullStars = Array.from({ length: starCount }, (_, index) => (
       <span key={index} className="gold-star">&#9733;</span>
     ));
-    
-    return [fullStars];
+
+    return fullStars;
   };
 
   const handleLogout = () => {
-    // Clear the token and user information from local storage
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     localStorage.removeItem('role');
-
-    // Navigate to the login page or another appropriate route
     navigate('/login');
   };
 
