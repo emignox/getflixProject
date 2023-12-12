@@ -29,7 +29,7 @@ const ForgotPassword = () => {
 
   return (
     <div className="overflow-hidden">
-      <div className='login-page template d-flex justify-content-center align-items-center vh-100'>
+      <div className='template d-flex justify-content-center align-items-center vh-100'>
         <div className='col-md-6 col-12 d-flex flex-column h-100'>
           <div className='p-5 flex-fill'>
             <form className='h-100 d-flex flex-column justify-content-center'>
@@ -52,11 +52,12 @@ const ForgotPassword = () => {
             </form>
           </div>
         </div>
-        <div className='img col-md-6 col-12 d-none d-md-flex align-items-center h-100'>
-          <img src='assets/forgot.svg' alt='Description' className='img-fluid' />
+        <div className='col-md-6 d-none d-md-flex align-items-center h-100'>
+            <img src='assets/forgot.svg' alt='Description' className='img-fluid' />
         </div>
-      </div>
-    </div>
+  </div>
+</div>
+
   );
 };
 
