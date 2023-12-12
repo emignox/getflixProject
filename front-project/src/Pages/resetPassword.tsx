@@ -32,7 +32,6 @@ const ResetPassword = () => {
   };
 
   return (
-<body className="overflow-hidden">
   <div className='template d-flex justify-content-center align-items-center vh-100'>
     <div className='col-md-6 d- none d-flex align-items-center h-100'>
       <img src='assets/reset.svg' alt='Description' className='img-fluid' />
@@ -73,7 +72,6 @@ const ResetPassword = () => {
       </div>
     </div>
   </div>
-</body>
   );
 };
 

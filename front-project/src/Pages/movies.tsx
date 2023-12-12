@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './movies.css';
+import { Container, Row, Col } from 'react-bootstrap';
 import Navbar from '../component/navbar';
 import Footer from '../component/footer';
 
@@ -55,19 +56,26 @@ function Movies() {
   
   return (
     <>
-      <Navbar />
+    <Navbar />
+    <body className='bodyMovie'>
       <h1 className='titreMovies' style={{ textAlign: 'center', marginTop: '2rem' }}>Movies</h1>
-      <div className='container'>
-        {movies.map((movie) => (
-          <Link key={movie.id} to={`/movies/watch/${movie.id}`} className='card movie-link'>
-            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} className='img' />
-            <h5 className='movie-title'>{movie.title}</h5>
-            <p className='rating'>Rating: {renderStars(movie.vote_average)}</p>          
-          </Link>
-        ))}
-      </div>
-      <Footer />
-    </>
+      <Container fluid>
+        <Row xs={1} sm={2} md={3} lg={4} xl={5} className='g-4'>
+          {movies.map((movie) => (
+            <Col key={movie.id}>
+              <Link to={`/movies/watch/${movie.id}`} className='card movie-link'>
+                <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} className='img' />
+                <h5 className='movie-title'>{movie.title}</h5>
+                <p className='rating'>Rating: {renderStars(movie.vote_average)}</p>          
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
+    </body>
+    <Footer />
+  </>
   );
 }
 

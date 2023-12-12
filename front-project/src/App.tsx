@@ -15,7 +15,6 @@ import ForgotPassword from './Pages/forgotPassword';
 import ResetPassword from './Pages/resetPassword';
 import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
-import Signup from './Pages/signup';
 //import PrivateRoute from './component/PrivateRoute';
 
 
