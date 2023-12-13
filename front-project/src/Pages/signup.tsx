@@ -43,12 +43,9 @@ function Signup() {
 
   return (
   <div className="overflow-hidden">
-    <div className='template d-flex justify-content-center align-items-center vh-100'>
-      <div className='col-md-6 d- none d-flex align-items-center h-100'>
-        <img src='assets/popcorn2.jpg' alt='Description' className='img-fluid' />
-      </div>
-      <div className='col-md-6 d-flex flex-column h-100'>
-        <div className='p-5 flex-fill'>
+    <div className='signup_body template d-flex justify-content-center align-items-center vh-100'>
+    <div className='col-md-6 col-12 d-flex flex-column h-100'>
+            <div className='signup_card p-5 flex-fill'>
           <form className='h-100 d-flex flex-column justify-content-center' onSubmit={handleSubmit}>
             <h3 className='text-center'>Sign Up</h3>
             <div className='mb-2'>
@@ -119,7 +116,7 @@ function Signup() {
               <button className='btn'>Sign Up</button>
             </div>
             <p className='text-end mt-2'>
-              Already Registered? <a href='login' className='ms-2'>Log in</a>
+              Already Registered? <a href='login' className='link_login ms-2'>Log in</a>
             </p>
             {registrationMessage && (
               <p className='text-center text-success'>{registrationMessage}</p>

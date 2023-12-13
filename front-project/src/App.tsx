@@ -16,6 +16,8 @@ import ResetPassword from './Pages/resetPassword';
 import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
 import Slider from './component/slider';
+import Series from './Pages/series';
+import SingleSerie from './Pages/serie';
 import SeriesSlider from './component/series_component';
 import TrailerPage from './Pages/trailer';
 //import PrivateRoute from './component/PrivateRoute';
@@ -34,11 +36,14 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/footer" element={<Footer />} />
-          <Route  path='/movies' element={ <Movies /> } />
+          <Route path='/movies' element={<Movies /> } />
+          <Route path='/series' element={<Series /> } />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
+          <Route path="/series/watch/:id" element={ <SingleSerie /> } />
           <Route path="/movie/:id" element={ <SingleMovie /> } />
           <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
           <Route path="/other" element={

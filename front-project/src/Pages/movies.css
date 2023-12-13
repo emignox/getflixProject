@@ -1,17 +1,23 @@
-.bodyMovie {
-  background-color: #53bb90;
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+.mov{
+    font-family: 'Courgette', cursive;
+    font-size: 40px;
+    font-weight: 800px;
 }
+
+.bodyMovie {
+  background: rgb(83,187,144);
+  background: radial-gradient(circle, rgba(83,187,144,0.5) 0%, rgba(0,113,184,0.5) 100%);}
 .g-4 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: white;
     gap: 1rem;
     margin: 4rem 2rem; 
     margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 0rem;
     padding: 2rem; 
-    border-radius: 5%;
   }
   
   .card {

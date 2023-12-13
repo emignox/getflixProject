@@ -31,7 +31,7 @@ const ForgotPassword = () => {
     <div className="overflow-hidden">
       <div className='template d-flex justify-content-center align-items-center vh-100'>
         <div className='col-md-6 col-12 d-flex flex-column h-100'>
-          <div className='p-5 flex-fill'>
+          <div className='forgot_card p-5 flex-fill'>
             <form className='h-100 d-flex flex-column justify-content-center'>
               <h3 className='text-center mb-4'>Forgot password</h3>
               <p className='mb-4'>Enter your email address to receive instructions for resetting your password.</p>
