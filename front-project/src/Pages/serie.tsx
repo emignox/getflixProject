@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../component/navbar';
 import Footer from '../component/footer';
 import "./serie.css"
+import SeriesSlider from '../component/series_component';
 
 interface Serie {
   id: number;
@@ -69,6 +70,7 @@ const renderStars = (rating: number) => {
           </div>
         </div>
       </div>
+      <SeriesSlider />
       <Footer />
     </>
 
