@@ -71,8 +71,8 @@ function MovieSlider() {
 
   return (
     <>
-    <h1 className='titreMovies mov  ' style={{ textAlign: 'center', marginTop: '2rem', color:'#0071b8', fontSize:'40px' }} >Movies</h1>
-    <div className='container slider-container bg-white justify-content-center' >
+    <h1 className='titreMovies mov  ' style={{ textAlign: 'center', marginTop: '2rem', color:'#53bb90', fontSize:'40px', zIndex:6 }} >Movies</h1>
+    <div className='container slider-container bg-transparent justify-content-center' >
       {movies.slice(currentSlide * moviesPerSlide, (currentSlide + 1) * moviesPerSlide).map((movie, index) => (
         <div key={movie.id} className={currentSlide === index ? 'slide-in' : 'slide-out'}>
           <Link to={`/movies/watch/${movie.id}`} className='card movie-link '>

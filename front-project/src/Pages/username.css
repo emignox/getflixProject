@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 
+.pol{
+    font-family: 'Courgette', cursive;
+
+}
 
 .user{
     height: 100vh;
     background: rgb(2,0,36);
-    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(89,125,178,1) 0%, rgba(216,216,216,1) 100%);
+    background: linear-gradient(0deg,#53bb90 0%, #53bb90 0%, rgba(216,216,216,0) 100%);
 }
 .overlay {
     position: absolute;
@@ -31,11 +36,11 @@
     padding: 0% 5% 0% 5%;
     height: 30px;
     border-radius: 20px;
-    background: linear-gradient(to right,#597db2 50%, #fff 50%);
+    background: linear-gradient(to right,#0071b8 50%, #fff 50%);
     background-size: 200% 100%;
     background-position: right bottom;
     transition: all 1s ease-out;
-    color: #000;
+    color: #000000;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -48,7 +53,6 @@
 
 .continue-button:hover {
     background-position: left bottom;
-    color: #fff;
 }
 input[type='text']:focus {
     border-color: #000; /* Cambia questo colore come preferisci */

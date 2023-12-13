@@ -17,6 +17,9 @@ import Movies from './Pages/movies';
 import SingleMovie from './Pages/movie';
 import Slider from './component/slider';
 import SeriesSlider from './component/series_component';
+import TopRatedSeries from './component/top_rated';
+import Email from './Pages/email';
+import Password from './Pages/password';
 //import PrivateRoute from './component/PrivateRoute';
 
 
@@ -25,11 +28,19 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route path="/" element={<SeriesSlider />} />
+        <Route path="/top_rated" element={<TopRatedSeries/>} />
+        <Route path="/mail" element={<Email/>} />
+
+        <Route path="/password" element={<Password/>} />
+        <Route path="/home" element={<Home />} />
+
+
+
+        <Route path="/serie" element={<SeriesSlider />} />
         <Route path="/slider" element={<Slider />} />
           <Route path="/username" element={<Username />} />
-          <Route path="/" element={<Presentation />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/stramify" element={<Presentation />} />
+          <Route path="/" element={<Profile />} />
           <Route path="/home" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/footer" element={<Footer />} />
