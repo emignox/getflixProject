@@ -71,17 +71,19 @@ function SeriesSlider() {
   return (
     <>
       <h1
-        className="titreSeries mov"
+        className="titreSeries mov "
         style={{
           textAlign: "center",
           marginTop: "2rem",
           color: "#0071b8",
           fontSize: "40px",
+          zIndex:6,
         }}
       >
         Series
       </h1>
-      <div className="container justify-content-center  slider-container bg-white ">
+      <div className="container justify-content-center  slider-container bg-transparent  " style={{ zIndex:'7'}}>
+      
         {series
           .slice(
             currentSlide * seriesPerSlide,

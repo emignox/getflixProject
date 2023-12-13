@@ -2,9 +2,7 @@
 .titles{
     height:60px ;
     width: 100%;
-     border-bottom: 2px solid #597DB2;
-     background-image: linear-gradient(45deg,#4C6B99
-     ,#79a9ec);
+  background: transparent;
 }
 
     .icone1{
@@ -33,8 +31,8 @@
       right: 0;
       left: 0;
       bottom: 0;
-      background-image: linear-gradient(45deg,#4C6B99
-      ,#B2D1FF
+      background-image: linear-gradient(45deg,#3e8e6c
+      ,#53bb90
       ); 	
       transform: skewY(-11deg);
       z-index: 1;
@@ -47,8 +45,9 @@
       position: relative;
       top: 15vh;
       z-index: 2;
+      color: #0071b8;
     }
-
+    
 
             /* media */
 

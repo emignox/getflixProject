@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 interface Movie {
   id: number;
@@ -15,6 +15,7 @@ function Jumbotron() {
   const [movie, setMovie] = useState<Movie | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
 
+  // [FIXME]: Hack, a fare con CSS
   useEffect(() => {
     window.addEventListener("resize", () => {
       setIsMobile(window.innerWidth <= 500);
@@ -22,6 +23,7 @@ function Jumbotron() {
 
     const apiUrl = "http://localhost:8888/getflixProject/api/get_movies.php";
 
+    // [NOTE]: Loading, Error, Success states 
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl);
@@ -51,13 +53,15 @@ function Jumbotron() {
     const starCount = Math.floor(roundedRating / 2);
 
     return Array.from({ length: starCount }, (_, index) => (
-      <span key={index} className="gold-star">&#9733;</span>
+      <span key={index} className="gold-star">
+        &#9733;
+      </span>
     ));
   };
   return (
-    <div
-      className="jumbotron d-flex align-items-center"
-      style={{ height: "100vh", position: "relative" }}
+    <div 
+      className="jumbotron d-flex align-items-center "
+      style={{ height: "100vh", position: "relative",  top:'15px',  }}
     >
       <div className="col-10 video-container d-flex justify-content-center">
         {movie && (
@@ -73,7 +77,6 @@ function Jumbotron() {
               >
                 {movie.title}
               </h2>
-            
 
               <p
                 style={{
@@ -86,9 +89,15 @@ function Jumbotron() {
               </p>
               <p style={{ color: "#0071b8", fontSize: "20px" }}>
                 Vote Average:{renderStars(movie.vote_average)} <br />
-                <Link to={`/movie/${movie.id}`} className="btn btn-primary  mt-2 " style={{
-                width: "200px",
-              }}>Play Now</Link>
+                <Link
+                  to={`/movie/${movie.id}`}
+                  className="btn btn-primary  mt-2 "
+                  style={{
+                    width: "200px",
+                  }}
+                >
+                  Play Now
+                </Link>
               </p>
             </div>
             <div
@@ -97,29 +106,34 @@ function Jumbotron() {
                 top: 0,
                 left: 0,
                 width: "100%",
-                height: "100%",
+                height: "150%",
                 background:
-                  "linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)",
+                  "linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,9) 35%, rgba(216,216,216,0) 100%)",
                 zIndex: 4,
               }}
             ></div>
             {!isMobile && (
+
+              // [FIXME]:
+              //  Create Image comopoent
+              //  No inline styles customize bootsrap
+          
               <img
                 style={{
                   position: "absolute",
                   top: 0,
-                  left: 0,  
-                  width: "100%",
-                  height: "100%",
+                  left: 0,
+                  width: "150%",
+                  height: "95%",
                   objectFit: "cover",
-                  filter: "blur(30px)",
+                  filter: "blur(20px)",
                   zIndex: 1,
                 }}
                 src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
                 alt={movie.title}
-              />
+             />
             )}
-            <img
+             <img
               className="mb-3"
               style={{
                 width: "100%",
@@ -132,7 +146,7 @@ function Jumbotron() {
               }}
               src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
               alt={movie.title}
-            />
+            /> *
           </>
         )}
       </div>

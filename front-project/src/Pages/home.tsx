@@ -9,8 +9,10 @@ function home() {
     <div>
       <Navbar />
       <Jumbotron />
+      <div className="" style={{position:'relative', zIndex:6, marginTop:'130px'}}>
       <Slider />
       <SeriesSlider />
+      </div>
       <Footer />
     </div>
   );
