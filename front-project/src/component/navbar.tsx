@@ -17,38 +17,64 @@ interface Movie {
   poster_path: string;
 }
 
+interface Series {
+  id: number;
+  name: string;
+  vote_average: number;
+  poster_path: string;
+}
+
 function NavScrollExample() {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [filtered, setFiltered] = useState<Movie[]>([]);
+  const [series, setSeries] = useState<Series[]>([]);
+  const [filtered, setFiltered] = useState<(Movie | Series)[]>([]);
   const [search, setSearch] = useState<string>("");
   const searchRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get<{ movies: Movie[] }>("http://localhost:8888/getflixProject/api/get_movies.php");
-        const data = response.data;
-        if (Array.isArray(data.movies)) {
-          setMovies(data.movies);
-        } else {
-          console.error('Invalid data structure received from the server');
-        }
-      } catch (error) {
-        console.error('Error fetching movies:', error);
+const fetchMovies = async () => {
+    try {
+      const response = await axios.get<{ movies: Movie[] }>("http://localhost:8888/getflixProject/api/get_movies.php");
+      const data = response.data;
+      if (Array.isArray(data.movies)) {
+        setMovies(data.movies);
+      } else {
+        console.error('Invalid data structure received from the server');
       }
-    };
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+    }
+};
 
+const fetchSeries = async () => {
+    try {
+      const response = await axios.get<{ series: Series[] }>("http://localhost:8888/getflixProject/api/get_series.php");
+      const data = response.data;
+      if (Array.isArray(data.series)) {
+        setSeries(data.series);
+      } else {
+        console.error('Invalid data structure received for series from the server');
+      }
+    } catch (error) {
+      console.error('Error fetching series:', error);
+    }
+};
+
+useEffect(() => {
     fetchMovies();
+    fetchSeries();
   }, []);
 
   useEffect(() => {
-    setFiltered(
-      movies.filter((item) =>
+    setFiltered([
+      ...movies.filter((item) =>
         item.title.toLowerCase().includes(search.toLowerCase())
-      )
-    );
-  }, [search, movies]);
+      ),
+      ...series.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      ),
+    ]);
+  }, [search, movies, series]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputText = e.target.value;
@@ -122,16 +148,20 @@ function NavScrollExample() {
                 filtered.map((item, index) => (
                   <div className="result"
                     key={index}
-                    onClick={() => {
-                      searchRef.current.value = item.title;
-                      setSearch("");
-                    }}
-                  >
-                    <Link key={item.id} to={`/movies/watch/${item.id}`} className='card movie-link'>
-                      <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.title} className='img' />
-                      <h5 className='movie-title'>{item.title}</h5>
-                      <p className='rating'>Rating: {renderStars(item.vote_average)}</p>  
-                    </Link>
+                    onClick={() => { /* ... */ }}>
+                      {("title" in item) ? (
+                        <Link key={item.id} to={`/movies/watch/${item.id}`} className='card movie-link'>
+                          <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.title} className='img' />
+                          <h5 className='movie-title'>{item.title}</h5>
+                          <p className='rating'>Rating: {renderStars(item.vote_average)}</p>  
+                        </Link>
+                      ) : (
+                        <Link key={item.id} to={`/series/watch/${item.id}`} className='card series-link'>
+                          <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.name} className='img' />
+                          <h5 className='series-title'>{item.name}</h5>
+                          <p className='rating'>Rating: {renderStars(item.vote_average)}</p>
+                        </Link>
+                      )}
                   </div>
                 ))
               ) : (
