@@ -13,8 +13,13 @@ interface Movie {
 
 function Jumbotron() {
   const [movie, setMovie] = useState<Movie | null>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
 
   useEffect(() => {
+    window.addEventListener("resize", () => {
+      setIsMobile(window.innerWidth <= 500);
+    });
+
     const apiUrl = "http://localhost:8888/getflixProject/api/get_movies.php";
 
     const fetchData = async () => {
@@ -49,13 +54,12 @@ function Jumbotron() {
       <span key={index} className="gold-star">&#9733;</span>
     ));
   };
-
   return (
     <div
       className="jumbotron d-flex align-items-center"
       style={{ height: "100vh", position: "relative" }}
     >
-      <div className="col-10 video-container d-flex   justify-content-center">
+      <div className="col-10 video-container d-flex justify-content-center">
         {movie && (
           <>
             <div className="row " style={{ position: "absolute", zIndex: 5 }}>
@@ -99,20 +103,22 @@ function Jumbotron() {
                 zIndex: 4,
               }}
             ></div>
-            <img
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,  
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                filter: "blur(30px)",
-                zIndex: 1,
-              }}
-              src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
-              alt={movie.title}
-            />
+            {!isMobile && (
+              <img
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,  
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  filter: "blur(30px)",
+                  zIndex: 1,
+                }}
+                src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
+                alt={movie.title}
+              />
+            )}
             <img
               className="mb-3"
               style={{

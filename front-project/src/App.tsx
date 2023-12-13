@@ -18,7 +18,8 @@ import SingleMovie from './Pages/movie';
 import Slider from './component/slider';
 import Series from './Pages/series';
 import SingleSerie from './Pages/serie';
-
+import SeriesSlider from './component/series_component';
+import TrailerPage from './Pages/trailer';
 //import PrivateRoute from './component/PrivateRoute';
 
 
@@ -27,8 +28,8 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route path="/" element={<Slider />} />
-
+        <Route path="/" element={<SeriesSlider />} />
+        <Route path="/slider" element={<Slider />} />
           <Route path="/username" element={<Username />} />
           <Route path="/" element={<Presentation />} />
           <Route path="/profile" element={<Profile />} />
@@ -43,6 +44,8 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
           <Route path="/series/watch/:id" element={ <SingleSerie /> } />
+          <Route path="/movie/:id" element={ <SingleMovie /> } />
+          <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
           <Route path="/other" element={
               <>
               <Navbar />

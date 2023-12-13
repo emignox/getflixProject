@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../component/navbar';
 import Footer from '../component/footer';
+import { Link } from 'react-router-dom';
 import "./movie.css"
 
 interface Movie {
@@ -57,7 +58,9 @@ const renderStars = (rating: number) => {
                 Rating: {renderStars(movie.vote_average)}
               </p>
               <p>{movie.overview}</p>
-              <button className="btn m-2">Watch Trailer</button>
+                <Link to={`/movie/trailer/${movie.id}`} className="btn m-2">
+                  Watch Trailer
+                </Link>
             </div>
           </div>
           <div className="col-md-6">

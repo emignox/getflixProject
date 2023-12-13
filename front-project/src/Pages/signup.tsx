@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import './login_singup.css';
 
-function signup() {
+function Signup() {
   const [formData, setFormData] = useState({
     username: '',
     firstname: '',
@@ -130,4 +130,4 @@ function signup() {
   )
 }
 
-export default signup
+export default Signup
