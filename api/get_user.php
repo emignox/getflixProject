@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     try {
         if (isset($_GET['username'])) {
             $username = $_GET['username'];
-            $queryGetUser = $conn->prepare("SELECT username, email, password, role, created_at FROM users WHERE username = ?");
+            $queryGetUser = $conn->prepare("SELECT firstname, lastname, username, email, password, role, created_at FROM users WHERE username = ?");
             $queryGetUser->bind_param("s", $username);
             $queryGetUser->execute();
             $result = $queryGetUser->get_result();
