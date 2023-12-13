@@ -5,6 +5,7 @@ import Navbar from '../component/navbar';
 import Footer from '../component/footer';
 import { Link } from 'react-router-dom';
 import "./movie.css"
+import Slider from "../component/slider";
 
 interface Movie {
   id: number;
@@ -72,6 +73,7 @@ const renderStars = (rating: number) => {
           </div>
         </div>
       </div>
+      <Slider />
       <Footer />
     </>
 
