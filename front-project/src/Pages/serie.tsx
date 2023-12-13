@@ -3,36 +3,35 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../component/navbar';
 import Footer from '../component/footer';
-import { Link } from 'react-router-dom';
-import "./movie.css"
+import "./serie.css"
 
-interface Movie {
+interface Serie {
   id: number;
-  title: string;
+  name: string;
   overview: string;
   poster_path: string;
-  release_date: string;
+  first_air_date: string;
   vote_average: number;
 }
 
-const SingleMovie = () => {
+const SingleSerie = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState<Movie | null>(null);
+  const [serie, setserie] = useState<Serie | null>(null);
 
   useEffect(() => {
-    const fetchMovie = async () => {
+    const fetchserie = async () => {
       try {
-        const response = await axios.get(`http://localhost:8888/getflixProject/api/get_movie_by_id.php?id=${id}`);
-        setMovie(response.data);
+        const response = await axios.get(`http://localhost:8888/getflixProject/api/get_serie_by_id.php?id=${id}`);
+        setserie(response.data);
       } catch (error) {
-        console.error('Error fetching movie:', error);
+        console.error('Error fetching serie:', error);
       }
     };
 
-    fetchMovie();
+    fetchserie();
   }, [id]);
 
-  if (!movie) {
+  if (!serie) {
     return <div>Loading...</div>;
   }
 
@@ -52,21 +51,19 @@ const renderStars = (rating: number) => {
         <div className="row">
           <div className="col-md-6 d-flex align-items-center">
             <div className="d-flex flex-column">
-              <h2 className='mov'>{movie.title}</h2>
-              <p>Release Date: <span className='date'>{movie.release_date}</span></p>
+              <h2 className='mov'>{serie.name}</h2>
+              <p>Release Date: <span className='date'>{serie.first_air_date}</span></p>
               <p>
-                Rating: {renderStars(movie.vote_average)}
+                Rating: {renderStars(serie.vote_average)}
               </p>
-              <p>{movie.overview}</p>
-                <Link to={`/movie/trailer/${movie.id}`} className="btn m-2">
-                  Watch Trailer
-                </Link>
+              <p>{serie.overview}</p>
+              <button className="btn m-2">Watch Trailer</button>
             </div>
           </div>
           <div className="col-md-6">
             <img
-              src={`http://image.tmdb.org/t/p/w780${movie.poster_path}`}
-              alt={movie.title}
+              src={`http://image.tmdb.org/t/p/w780${serie.poster_path}`}
+              alt={serie.name}
               style={{ width: '100%', borderRadius: '10%' }}
             />
           </div>
@@ -78,4 +75,4 @@ const renderStars = (rating: number) => {
   );
 };
 
-export default SingleMovie;
+export default SingleSerie;

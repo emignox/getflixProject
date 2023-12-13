@@ -37,7 +37,7 @@ const ResetPassword = () => {
       <img src='assets/reset.svg' alt='Description' className='img-fluid' />
     </div>
     <div className='col-md-6 d-flex flex-column h-100'>
-      <div className='p-5 flex-fill'>
+      <div className='forgot_card p-5 flex-fill'>
         <form className='h-100 d-flex flex-column justify-content-center'>
           <h3 className='text-center mb-4'>Reset Password</h3>
           <div className='mb-2'>

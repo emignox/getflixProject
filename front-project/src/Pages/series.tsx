@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './movies.css';
+import './series.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import Navbar from '../component/navbar';
 import Footer from '../component/footer';
 
-interface Movie {
+interface serie {
   id: number;
-  title: string;
+  name: string;
   overview: string;
   poster_path: string;
   release_date: string;
   vote_average: number;
 }
 
-function Movies() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+function series() {
+  const [series, setSeries] = useState<serie[]>([]);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
-    const apiUrl = 'http://localhost:8888/getflixProject/api/get_movies.php';
+    const apiUrl = 'http://localhost:8888/getflixProject/api/get_series.php';
   
 
     const fetchData = async () => {
@@ -27,13 +29,13 @@ function Movies() {
         const response = await axios.get(apiUrl);
         const data = response.data;
         //console.log('Response data:', data);
-        if (data && data.movies) {
-          setMovies(data.movies);
+        if (data && data.series) {
+          setSeries(data.series);
         } else {
           console.error('Invalid data structure received from the server');
         }
       } catch (error) {
-        console.error('Error fetching movies:', error);
+        console.error('Error fetching series:', error);
       }
     };
 
@@ -55,16 +57,16 @@ function Movies() {
   return (
     <>
     <Navbar />
-    <body className='bodyMovie'>
-      <h1 className='mov titreMovies' style={{ textAlign: 'center', marginTop: '2rem' }}>Movies</h1>
+    <body className='bodySerie'>
+      <h1 className='mov titreSeries' style={{ textAlign: 'center', marginTop: '2rem' }}>Series</h1>
       <Container fluid>
-        <Row xs={1} sm={2} md={3} lg={4} xl={5} className='g-4'>
-          {movies.map((movie) => (
-            <Col key={movie.id}>
-              <Link to={`/movie/${movie.id}`} className='card movie-link'>
-                <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} className='img' />
-                <h5 className='movie-title'>{movie.title}</h5>
-                <p className='rating'>Rating: {renderStars(movie.vote_average)}</p>          
+        <Row xs={1} sm={2} md={3} lg={4} xl={5} className='cardSeries g-4'>
+          {series.map((serie) => (
+            <Col key={serie.id}>
+              <Link to={`/series/watch/${serie.id}`} className='card serie-link'>
+                <img src={`https://image.tmdb.org/t/p/w300${serie.poster_path}`} alt={serie.name} className='img' />
+                <h5 className='serie-title'>{serie.name}</h5>
+                <p className='rating'>Rating: {renderStars(serie.vote_average)}</p>          
               </Link>
             </Col>
           ))}
@@ -78,4 +80,4 @@ function Movies() {
 }
 
 
-export default Movies;
+export default series;
