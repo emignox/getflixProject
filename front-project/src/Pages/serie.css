@@ -1,4 +1,5 @@
-.movie-details {
+
+.serie-details {
     text-align: center;
     padding: 0rem;
 }
@@ -15,7 +16,6 @@
     padding: 2rem; 
 }
 
-
 .gold-star {
     color: gold;
   }
@@ -26,7 +26,6 @@ h2{
     font-weight: bold;
     margin: 1rem;
 }
-
 p{
     color:#0071b8;
     font-size: 1rem;
