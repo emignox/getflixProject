@@ -25,6 +25,7 @@ import Password from './Pages/password';
 import TrailerPage from './Pages/trailer';
 import TopRatedMovies from './component/top_rated_movies';
 import Upcoming from './Pages/upcoming';
+import Subscribe from './Pages/subscribe';
 //import PrivateRoute from './component/PrivateRoute';
 
 
@@ -56,6 +57,7 @@ function App() {
           <Route path="/serie/:id" element={ <SingleSerie /> } />
           <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
           <Route path="/upcoming" element={<Upcoming /> } />
+          <Route path="/subscribe" element={<Subscribe /> } />
           <Route path="/other" element={
               <>
               <Navbar />
