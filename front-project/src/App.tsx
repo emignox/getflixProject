@@ -42,7 +42,7 @@ function App() {
         <Route path="/slider" element={<Slider />} />
           <Route path="/username" element={<Username />} />
           <Route path="/stramify" element={<Presentation />} />
-          <Route path="/" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/home" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/footer" element={<Footer />} />
