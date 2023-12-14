@@ -8,6 +8,7 @@ import TopRatedMovies from "../component/top_rated_movies";
 
 function home() {
   return (
+    <>
     <div>
       <Navbar />
       <Jumbotron />
@@ -26,6 +27,7 @@ function home() {
       </div>
       <Footer />
     </div>
+    </>
   );
 }
 
