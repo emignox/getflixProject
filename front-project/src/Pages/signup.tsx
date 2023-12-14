@@ -1,5 +1,6 @@
 // import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { FormEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import axios from 'axios';
 import './login_singup.css';
 
@@ -10,16 +11,17 @@ function Signup() {
     lastname: '',
     email: '',
     password: '',
+    role: 'user'
   });
 
   const [registrationMessage, setRegistrationMessage] = useState('');
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {

@@ -1,24 +1,55 @@
 import { useState } from 'react';
 import "./username.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from 'axios';
 
-function accessData() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+function AccessData() {
+  const { username: routeUsername } = useParams();
+  const storedUsername = localStorage.getItem('username');
+  const username = storedUsername || routeUsername || null;
+
+  const [newUsername, setUsername] = useState("");
+  const [newEmail, setEmail] = useState("");
+  const [newPassword, setPassword] = useState("");
+  
+
+  // Handle form submission
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (username && email && password) {
-      alert("Data has been saved.");
+    if (newUsername || newEmail || newPassword) {
+      try {
+        const response = await axios.post(`http://localhost:8888/getflixProject/api/update_profile.php?username=${username}`, {
+          username: routeUsername,
+          newUsername,
+          newEmail,
+          newPassword
+        });
+
+        if (response.data.success) {
+          if (newUsername) {
+            localStorage.setItem("username", newUsername);
+            window.location.assign(`/profile/${newUsername}`);
+          } else {
+            window.location.assign(`/profile/${username}`);
+          }
+          alert("Data has been saved.");
+        } else {
+          alert('Failed to update profile.');
+        }
+      }
+      catch (error) {
+        console.error('Error updating profile:', error);
+      }
     } else {
-      alert("Please fill out all fields.");
+      alert('Please fill out at least one fields.');
     }
   };
 
   return (
     <div className="user d-flex justify-content-center align-items-center vh-100">
-      <div className="overlay position-absolute"></div>
+      <div className="overlay position-absolute">
+      </div>
       <div className="form-user text-center">
         <h2 className="fw-bold pol">Choose you new Username</h2>
         <form onSubmit={handleSubmit}>
@@ -29,7 +60,7 @@ function accessData() {
           <input
             className="mb-3 border-0 border-bottom border-black w-50"
             type="text"
-            value={username}
+            value={newUsername}
             onChange={(e) => setUsername(e.target.value)}
           />
           <br />
@@ -41,7 +72,7 @@ function accessData() {
           <input
             className="mb-3 border-0 border-bottom border-black w-50"
             type="email"
-            value={email}
+            value={newEmail}
             onChange={(e) => setEmail(e.target.value)}
           />
           <br />
@@ -53,7 +84,7 @@ function accessData() {
           <input
             className="mb-3 border-0 border-bottom border-black w-50"
             type="password"
-            value={password}
+            value={newPassword}
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
@@ -65,7 +96,11 @@ function accessData() {
           </button>
           <Link className="  fs-6  text-decoration-none"  style={{color:'#0071b8'}} to={"/home"}>
             {" "}
-            Go back to the Home page
+            Home page
+          </Link> |
+          <Link className="  fs-6  text-decoration-none"  style={{color:'#0071b8'}} to={"/profile"}>
+            {" "}
+            Profile page
           </Link>
         </form>
       </div>
@@ -73,4 +108,4 @@ function accessData() {
   );
 }
 
-export default accessData;
+export default AccessData;
