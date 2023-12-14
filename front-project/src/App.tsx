@@ -24,6 +24,7 @@ import Email from './Pages/email';
 import Password from './Pages/password';
 import TrailerPage from './Pages/trailer';
 import Upcoming from './Pages/upcoming';
+import Subscribe from './Pages/subscribe';
 //import PrivateRoute from './component/PrivateRoute';
 
 
@@ -54,11 +55,12 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
-          <Route path="/series/watch/:id" element={ <SingleSerie /> } />
+          <Route path="/movie/:id" element={ <SingleMovie /> } />
+          <Route path="/serie/:id" element={ <SingleSerie /> } />
           <Route path="/movie/:id" element={ <SingleMovie /> } />
           <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
           <Route path="/upcoming" element={<Upcoming /> } />
+          <Route path="/subscribe" element={<Subscribe /> } />
           <Route path="/other" element={
               <>
               <Navbar />

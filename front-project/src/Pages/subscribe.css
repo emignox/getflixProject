@@ -1,0 +1,57 @@
+.container-with-background {
+    background: rgb(83, 187, 144);
+    background: radial-gradient(circle, rgba(83, 187, 144, 0.5) 0%, rgba(0, 113, 184, 0.5) 100%);
+    min-height: 100vh;
+  }
+
+.button-container {
+    display: flex;
+    background-color: gray;
+    border-radius: 28px;
+}
+  
+.transi {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 1s, border-radius 0.3s; 
+}
+  
+.active {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    background-color: #53bb90; 
+    color: #fff;
+}
+  
+.inactive {
+    background-color: gray; 
+    color: #000;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    color: #fff;
+
+}
+
+.sub-option {
+    background-color: gray; 
+    color: #000;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    color: #fff;
+    width: 200px;  
+    margin: 10px;
+
+}
+
+.sub-option:hover {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    background-color: #53bb90; 
+    color: #fff;
+}
