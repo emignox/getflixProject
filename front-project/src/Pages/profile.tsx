@@ -63,7 +63,7 @@ function FormTextExample() {
       <Container>
         <Row>
           <Col xs={6} md={4} className="mx-auto mt-5">
-            <Link className="nav-link  edit " to="/username">
+            <Link className="nav-link  edit " to={`/update-data/${username}`}>
               change your access data{" "}
             </Link>
             <Image

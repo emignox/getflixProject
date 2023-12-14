@@ -29,9 +29,9 @@ function AccessData() {
         if (response.data.success) {
           if (newUsername) {
             localStorage.setItem("username", newUsername);
-            window.location.assign(`/profile/${newUsername}`);
+            window.location.assign(`/update-data/${newUsername}`);
           } else {
-            window.location.assign(`/profile/${username}`);
+            window.location.assign(`/update-data/${username}`);
           }
           alert("Data has been saved.");
         } else {

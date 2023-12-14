@@ -32,7 +32,7 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route path="/profile/:username" element={<AccessData/>} />
+        <Route path="/update-data/:username" element={<AccessData/>} />
         <Route path="/top_rated_movies" element={<TopRatedMovies/>} />
         <Route path="/top_rated" element={<TopRatedSeries/>} />
         <Route path="/profile" element={<Profile/>} />
