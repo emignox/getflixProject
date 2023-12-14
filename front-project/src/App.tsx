@@ -23,6 +23,7 @@ import TopRatedSeries from './component/top_rated';
 import Email from './Pages/email';
 import Password from './Pages/password';
 import TrailerPage from './Pages/trailer';
+import TopRatedMovies from './component/top_rated_movies';
 import Upcoming from './Pages/upcoming';
 import Subscribe from './Pages/subscribe';
 //import PrivateRoute from './component/PrivateRoute';
@@ -33,15 +34,12 @@ function App() {
     <>
       <Router>
         <Routes>
+        <Route path="/" element={<TopRatedMovies/>} />
         <Route path="/top_rated" element={<TopRatedSeries/>} />
         <Route path="/mail" element={<Email/>} />
-
         <Route path="/password" element={<Password/>} />
         <Route path="/home" element={<Home />} />
-
-
-
-        <Route path="/serie" element={<SeriesSlider />} />
+        <Route path="/serie_slider" element={<SeriesSlider />} />
         <Route path="/slider" element={<Slider />} />
           <Route path="/username" element={<Username />} />
           <Route path="/stramify" element={<Presentation />} />
@@ -57,7 +55,6 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/movie/:id" element={ <SingleMovie /> } />
           <Route path="/serie/:id" element={ <SingleSerie /> } />
-          <Route path="/movie/:id" element={ <SingleMovie /> } />
           <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
           <Route path="/upcoming" element={<Upcoming /> } />
           <Route path="/subscribe" element={<Subscribe /> } />

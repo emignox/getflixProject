@@ -123,7 +123,7 @@ function Jumbotron() {
                   position: "absolute",
                   top: 0,
                   left: 0,
-                  width: "150%",
+                  width: "100%",
                   height: "95%",
                   objectFit: "cover",
                   filter: "blur(20px)",
