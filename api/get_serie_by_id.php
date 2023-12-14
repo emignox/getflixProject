@@ -4,7 +4,7 @@ header('Access-Control-Allow-Methods: GET, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type: application/json');
 header('Access-Control-Allow-Credentials: true');
 
-include 'db_connection.php';
+//include 'db_connection.php';
 
 /* if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
