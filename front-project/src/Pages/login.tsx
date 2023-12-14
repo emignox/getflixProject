@@ -20,7 +20,7 @@ function Login() {
   }, [navigate]);
 
   // Function to handle login
-  const handleLogin = async (e: any) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
