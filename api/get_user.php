@@ -5,7 +5,7 @@ header('Access-Control-Allow-Headers: Content-Type: application/json');
 header('Access-Control-Allow-Credentials: true');
 
 include 'connect_db.php';
-
+/*
 function createResponse($status, $data)
 {
     $response = [
@@ -14,7 +14,7 @@ function createResponse($status, $data)
     ];
     return json_encode($response);
 }
-
+*/
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -29,9 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
             $user = $result->fetch_assoc();
             
             if ($user) {
-                echo createResponse("200", $user);
+                echo json_encode(
+                    [
+                        "username" => $user['username'],
+                        "firstname" => $user['firstname'],
+                        "lastname" => $user['lastname'],
+                        "email" => $user['email']
+                    ]);
             } else {
-                echo createResponse("404", "User not found");
+                echo json_encode(["404" => "User not found"]);
             }
         } else {
             $queryGetUsers = $conn->prepare("SELECT * FROM `users` ORDER BY `created_at` DESC");
@@ -44,11 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
                     echo "$value";
                 }
             }
-            echo createResponse("200", $users);
+            //echo json_encode(["200" => $users]);
         }
     } catch (PDOException $e) {
         error_log("Database Error: " . $e->getMessage());
-        echo createResponse("500", "Internal Server Error");
+        echo json_encode(["500" => "Internal Server Error"]);
     }
 }
 ?>

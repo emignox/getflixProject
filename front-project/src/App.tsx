@@ -23,6 +23,7 @@ import TrailerPage from './Pages/trailer';
 import TopRatedMovies from './component/top_rated_movies';
 import Upcoming from './Pages/upcoming';
 import AccessData from './Pages/change_access_data';
+import Subscribe from './Pages/subscribe';
 //import PrivateRoute from './component/PrivateRoute';
 
 
@@ -40,7 +41,7 @@ function App() {
         <Route path="/serie_slider" element={<SeriesSlider />} />
         <Route path="/slider" element={<Slider />} />
           <Route path="/stramify" element={<Presentation />} />
-          <Route path="/" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/home" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/footer" element={<Footer />} />
@@ -54,6 +55,7 @@ function App() {
           <Route path="/serie/:id" element={ <SingleSerie /> } />
           <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
           <Route path="/upcoming" element={<Upcoming /> } />
+          <Route path="/subscribe" element={<Subscribe /> } />
           <Route path="/other" element={
               <>
               <Navbar />
