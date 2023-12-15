@@ -37,17 +37,18 @@ const TrailerPage: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="trailer-page">
-        <h2>{trailer?.trailerName}</h2>
+      <h2 className='text-center m-5 '>{trailer?.trailerName}</h2>
+
+      <div className="trailer-page d-flex justify-content-center mb-5">
         {loading && <div>Loading...</div>}
         {error && <div>Error: {error}</div>}
         {!loading && !error && !trailer && <div>No trailer available.</div>}
         {!loading && !error && trailer && (
           <div>
             <iframe
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${trailer.trailerKey}`}
+              width="1200"
+              height="650"
+              src={`https://www.youtube.com/embed/${trailer.trailerKey}?autoplay=1&mute=1&`}
               title="Trailer"
               allowFullScreen
             ></iframe>
