@@ -78,18 +78,18 @@ function FormTextExample() {
 
       <div className="underlay">
         {userData && (
-          <div className="text-center justify-content-center">
+          <div className="text-center justify-content-center ">
             {/* Display user information */}
-            <h2 className="text fw-bold mx-3" id="username">
+            <h2 className="text fw-bold mx-3 marg " id="username">
               Username: {userData.username}
             </h2>
-            <h2 className="text fw-bold mx-3" id="firstname">
+            <h2 className="text fw-bold mx-3 marg " id="firstname">
               Firstname: {userData.firstname}
             </h2>
-            <h2 className="text fw-bold" id="lastname">
+            <h2 className="text fw-bold marg  " id="lastname">
               Lastname: {userData.lastname}
             </h2>
-            <h2 className="text fw-bold" id="email">
+            <h2 className="text fw-bold marg " id="email">
               Email: {userData.email}
             </h2>
           </div>

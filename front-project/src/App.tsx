@@ -24,9 +24,9 @@ import TopRatedMovies from './component/top_rated_movies';
 import Upcoming from './Pages/upcoming';
 import AccessData from './Pages/change_access_data';
 import Subscribe from './Pages/subscribe';
-//import PrivateRoute from './component/PrivateRoute';
+import PrivateRoute from './component/PrivateRoute';
 
-
+/*
 function App() {
   return (
     <>
@@ -59,7 +59,6 @@ function App() {
               <>
               <Navbar />
               <Jumbotron />
-              {/* Altri componenti per il percorso /other */}
             </>
           } />
         </Routes>
@@ -69,25 +68,40 @@ function App() {
 }
 
 export default App;
-
+*/
 
 
 /*  Private routes  */
 
-/*
+
 function App() {
   return (
     <>
       <Router>
         <Routes>
           <Route element={<PrivateRoute/>}>
-            <Route path='/username' element={<Username/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path="/profile" element={<Profile />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/footer" element={<Footer />} />
             <Route  path='/movies' element={ <Movies /> } />
-            <Route path="/movies/watch/:id" element={ <SingleMovie /> } />
+            <Route path="/movie/:id" element={ <SingleMovie /> } />
+            <Route path="/upcoming" element={<Upcoming /> } />
+            <Route path='/series' element={<Series /> } />
+            <Route path="/serie/:id" element={ <SingleSerie /> } />    
+            <Route path="/serie/trailer/:id" element={ <TrailerPage /> } />
+            <Route path="/top_rated" element={<TopRatedSeries/>} />
+            <Route path="/top_rated_movies" element={<TopRatedMovies/>} />
+            <Route path="/update-data/:username" element={<AccessData/>} />
+            <Route path="/subscribe" element={<Subscribe /> } />
+            <Route path="/slider" element={<Slider />} />
+            <Route path="/serie_slider" element={<SeriesSlider />} />
+            <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
+
+
+            
+
+
             <Route path="/other" element={
               <>
                 <Navbar />
@@ -106,4 +120,5 @@ function App() {
     </>
   )
 }
-*/
+
+export default App;
