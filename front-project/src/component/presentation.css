@@ -16,13 +16,13 @@ svg text {
 }
 @keyframes stroke {
   0%   {
-    fill:#80B3FF; stroke: #80B3FF;
+    fill:#0071b8; stroke:#0071b8;
     stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
   }
-  70%  {fill: rgba(72,138,20,0); stroke: #80B3FF; }
-  80%  {fill: rgba(72,138,20,0); stroke: #80B3FF; stroke-width: 3; }
+  70%  {fill: rgba(72,138,20,0); stroke: #0071b8; }
+  80%  {fill: rgba(72,138,20,0); stroke: #0071b8; stroke-width: 3; }
   100% {
-    fill:#80B3FF ; stroke: #80B3FF; 
+    fill:#53bb90 ; stroke: #53bb90; 
     stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
   }
 }
@@ -47,6 +47,7 @@ svg text {
 
   .logo1{
     position: absolute;
+    top: 36%;
     left: 100px;
     width: 200PX;
   }

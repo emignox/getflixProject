@@ -6,10 +6,23 @@ import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import "./profile.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+
+
+interface User {
+  username: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+}
 
 function FormTextExample() {
-  const [profileImage, setProfileImage] = useState("");
+  const { username: routeUsername } = useParams();
+  const storedUsername = localStorage.getItem('username');
+  const username = storedUsername || routeUsername || null; // Directly use the variable
+  const [userData, setUser] = useState<User | null>(null);
+  const [profileImage, setProfileImage] = useState('');
 
   useEffect(() => {
     const images = [
@@ -23,13 +36,34 @@ function FormTextExample() {
     setProfileImage(randomImage);
   }, []);
 
+  useEffect(() => {
+    if (!username) {
+      console.error('Username not available');
+      return;
+    }
+
+    // Fetch user data when the component mounts
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8888/getflixProject/api/get_user.php?username=${username}`);
+        const data = response.data;     
+        setUser({...data});
+        console.log(data); 
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUserData();
+  }, [username]);
+
   return (
     <>
       <Navbar />
       <Container>
         <Row>
           <Col xs={6} md={4} className="mx-auto mt-5">
-            <Link className="nav-link  edit " to="/username">
+            <Link className="nav-link  edit " to={`/update-data/${username}`}>
               change your access data{" "}
             </Link>
             <Image
@@ -41,34 +75,30 @@ function FormTextExample() {
           </Col>
         </Row>
       </Container>
-     
-        <div className="underlay">
-          <div className=" text-center justify-content-center  ">
-            <h1 className=" text fw-bold mx-3 " id="lastname">
-              Polizzotto
-            </h1>
-            <h1 className="  text fw-bold" id="firstname">
-              Emanuele
-            </h1>
-            <br />
-            <h1 className=" text  mt-4 fw-bold ">
-              {" "}
-              Username: <h2 id="username"> emignox</h2>
-            </h1>
 
-            <h1 className=" text mt-5 fw-bold ">
-              {" "}
-              email:{" "}
-              <h3 id="email" className=" ">
-                emanuele971@icloud.com
-              </h3>
-            </h1>
+      <div className="underlay">
+        {userData && (
+          <div className="text-center justify-content-center">
+            {/* Display user information */}
+            <h2 className="text fw-bold mx-3" id="username">
+              Username: {userData.username}
+            </h2>
+            <h2 className="text fw-bold mx-3" id="firstname">
+              Firstname: {userData.firstname}
+            </h2>
+            <h2 className="text fw-bold" id="lastname">
+              Lastname: {userData.lastname}
+            </h2>
+            <h2 className="text fw-bold" id="email">
+              Email: {userData.email}
+            </h2>
           </div>
-      <div className="d-flex justify-content-center mb-5 mt-5">
-        <button className="registration  mb-5" type="submit">
-          Detete this profile
-        </button>
-      </div>
+        )}
+        <div className="d-flex justify-content-center mb-5 mt-5">
+          <button className="registration mb-5" type="submit">
+            Delete this profile
+          </button>
+        </div>
       </div>
 
       <Footer />

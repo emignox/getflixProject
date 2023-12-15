@@ -1,7 +1,7 @@
 <?php
 //database connection
 try {
-    $conn = new mysqli("localhost","root","","streamify");
+    $conn = new mysqli("localhost","root","root","streamify");
     return $conn;
   }
 catch (Exception $e){

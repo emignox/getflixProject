@@ -9,7 +9,6 @@ import Footer from './component/footer'
 import Privacy from './Pages/privacy';
 import Home from './Pages/home';
 import Profile from './Pages/profile';
-import Username from './Pages/username';
 import './App.css';
 import ForgotPassword from './Pages/forgotPassword';
 import ResetPassword from './Pages/resetPassword';
@@ -20,11 +19,10 @@ import Series from './Pages/series';
 import SingleSerie from './Pages/serie';
 import SeriesSlider from './component/series_component';
 import TopRatedSeries from './component/top_rated';
-import Email from './Pages/email';
-import Password from './Pages/password';
 import TrailerPage from './Pages/trailer';
 import TopRatedMovies from './component/top_rated_movies';
 import Upcoming from './Pages/upcoming';
+import AccessData from './Pages/change_access_data';
 import Subscribe from './Pages/subscribe';
 //import PrivateRoute from './component/PrivateRoute';
 
@@ -34,16 +32,15 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route path="/" element={<TopRatedMovies/>} />
+        <Route path="/update-data/:username" element={<AccessData/>} />
+        <Route path="/top_rated_movies" element={<TopRatedMovies/>} />
         <Route path="/top_rated" element={<TopRatedSeries/>} />
-        <Route path="/mail" element={<Email/>} />
-        <Route path="/password" element={<Password/>} />
+        <Route path="/profile" element={<Profile/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/serie_slider" element={<SeriesSlider />} />
         <Route path="/slider" element={<Slider />} />
-          <Route path="/username" element={<Username />} />
-          <Route path="/stramify" element={<Presentation />} />
-          <Route path="/" element={<Profile />} />
+          <Route path="/" element={<Presentation />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/home" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/footer" element={<Footer />} />

@@ -19,6 +19,7 @@ interface Movie {
 const SingleMovie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<Movie | null>(null);
+  const [userRating, setUserRating] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -32,6 +33,21 @@ const SingleMovie = () => {
 
     fetchMovie();
   }, [id]);
+
+  const handleRatingChange = async (newRating: number) => {
+    try {
+      // Send the rating to your PHP endpoint
+      await axios.post('http://localhost:8888/getflixProject/api/rating_movie.php', {
+        movie_id: id,
+        rating: newRating,
+      });
+
+      // Update the local state with the new rating
+      setUserRating(newRating);
+    } catch (error) {
+      console.error('Error rating movie:', error);
+    }
+  };
 
   if (!movie) {
     return <div>Loading...</div>;
@@ -56,12 +72,23 @@ const renderStars = (rating: number) => {
               <h2 className='mov'>{movie.title}</h2>
               <p>Release Date: <span className='date'>{movie.release_date}</span></p>
               <p>
-                Rating: {renderStars(movie.vote_average)}
+                Rating: {renderStars(userRating !== null ? userRating : movie.vote_average)}
               </p>
               <p>{movie.overview}</p>
-                <Link to={`/movie/trailer/${movie.id}`} className="btn m-2">
-                  Watch Trailer
-                </Link>
+              <Link to={`/movie/trailer/${movie.id}`} className="btn m-2">
+                Watch Trailer
+              </Link>
+              <div>
+              <p>Rate this movie: {[1, 2, 3, 4, 5].map((rating) => (
+                <span
+                  key={rating}
+                  className={`star ${userRating !== null && userRating >= rating ? 'selected' : ''}`}
+                  onClick={() => handleRatingChange(rating)}
+                >
+                  &#9733;
+                </span>
+              ))}</p>
+              </div>
             </div>
           </div>
           <div className="col-md-6">
