@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 
 require("./db_connection.php");
 
-$totalPages = 5;
+$totalPages = 20;
 
 for ($currentPage = 1; $currentPage <= $totalPages; $currentPage++) {
     $apiKey = "01fd56a673d7b722de210fadfb094f1f";
