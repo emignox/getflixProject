@@ -112,6 +112,23 @@ font-family: 'Zen Maru Gothic', serif;
   transition: opacity 0.3s;
 }
 
+.series-title{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.card:hover .series-title,
+.card:hover .rating {
+  opacity: 1;
+}
+
 .rating {
   position: absolute;
   bottom: 10px; /* Ajustez la position verticale selon vos besoins */
@@ -163,4 +180,11 @@ font-family: 'Zen Maru Gothic', serif;
     position: relative;
     top: 30px;
   }
+}
+
+
+.dim:hover,
+.dim:focus {
+  background-color: transparent;
+  color: #53bb90;
 }
