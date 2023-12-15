@@ -6,9 +6,8 @@ header('Access-Control-Allow-Headers: Content-Type');
 header('Access-Control-Allow-Credentials: true');
 header('Content-Type: application/json');
 
-//require './db_connection.php';
+require './db_connection.php';
 
-/*
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -20,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(405);
     echo json_encode(["error" => "Only GET requests are allowed"]);
 }
-*/
 
 
+/*
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -50,5 +49,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     echo json_encode(["error" => "Only GET requests are allowed"]);
 }
 
-
+*/
 

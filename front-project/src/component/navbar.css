@@ -79,7 +79,7 @@ font-family: 'Zen Maru Gothic', serif;
   overflow-y: auto;
 }
 
-.movie-link {
+.movie-link, .serie-link {
   color: #53bb90;
 }
 
@@ -125,8 +125,7 @@ font-family: 'Zen Maru Gothic', serif;
   transition: opacity 0.3s;
 }
 
-.card:hover .movie-title,
-.card:hover .rating {
+.card:hover .movie-title,.serie-title, .card:hover .rating {
   opacity: 1;
 }
 

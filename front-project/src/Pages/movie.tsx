@@ -24,7 +24,9 @@ const SingleMovie = () => {
     const fetchMovie = async () => {
       try {
         const response = await axios.get(`http://localhost:8888/getflixProject/api/get_movie_by_id.php?id=${id}`);
-        setMovie(response.data);
+        const data = response.data;
+        console.log(data.movie);
+        setMovie(data.movie);        
       } catch (error) {
         console.error('Error fetching movie:', error);
       }
@@ -65,11 +67,13 @@ const renderStars = (rating: number) => {
             </div>
           </div>
           <div className="col-md-6">
-            <img
-              src={`http://image.tmdb.org/t/p/w780${movie.poster_path}`}
-              alt={movie.title}
-              style={{ width: '100%', borderRadius: '10%' }}
-            />
+            {movie.poster_path && movie.poster_path !== "" && (
+              <img
+                src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                style={{ width: '100%', borderRadius: '10%' }}
+              />
+            )}
           </div>
         </div>
       </div>

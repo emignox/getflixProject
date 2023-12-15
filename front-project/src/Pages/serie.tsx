@@ -17,19 +17,21 @@ interface Serie {
 
 const SingleSerie = () => {
   const { id } = useParams();
-  const [serie, setserie] = useState<Serie | null>(null);
+  const [serie, setSerie] = useState<Serie | null>(null);
 
   useEffect(() => {
-    const fetchserie = async () => {
+    const fetchSerie= async () => {
       try {
         const response = await axios.get(`http://localhost:8888/getflixProject/api/get_serie_by_id.php?id=${id}`);
-        setserie(response.data);
+        const data = response.data;
+        console.log(data.serie);
+        setSerie(data.serie);        
       } catch (error) {
-        console.error('Error fetching serie:', error);
+        console.error('Error fetching movie:', error);
       }
     };
 
-    fetchserie();
+    fetchSerie();
   }, [id]);
 
   if (!serie) {
@@ -62,11 +64,13 @@ const renderStars = (rating: number) => {
             </div>
           </div>
           <div className="col-md-6">
+          {serie.poster_path && serie.poster_path !== "" && (
             <img
               src={`http://image.tmdb.org/t/p/w780${serie.poster_path}`}
               alt={serie.name}
               style={{ width: '100%', borderRadius: '10%' }}
             />
+          )}
           </div>
         </div>
       </div>
