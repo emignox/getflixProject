@@ -32,14 +32,14 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route path="/profile/:username" element={<AccessData/>} />
+        <Route path="/update-data/:username" element={<AccessData/>} />
         <Route path="/top_rated_movies" element={<TopRatedMovies/>} />
         <Route path="/top_rated" element={<TopRatedSeries/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/serie_slider" element={<SeriesSlider />} />
         <Route path="/slider" element={<Slider />} />
-          <Route path="/stramify" element={<Presentation />} />
+          <Route path="/" element={<Presentation />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/home" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
