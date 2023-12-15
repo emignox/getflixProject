@@ -4,20 +4,21 @@ header('Access-Control-Allow-Methods: GET, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type: application/json');
 header('Access-Control-Allow-Credentials: true');
 
-include 'connect_db.php';
+require './db_connection.php';
 
-/*if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt = $conn->query("SELECT * FROM top_rated_series");
-    $top_rated_series = $stmt->fetch_all(PDO::FETCH_ASSOC);
+    $top_rated_series = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode(["top_rated_series" => $top_rated_series]);
 } else {
     http_response_code(405);
     echo json_encode(["error" => "Only GET requests are allowed"]);
-}*/
+}
 
+/*
 $api_key = '01fd56a673d7b722de210fadfb094f1f';
 $url = 'https://api.themoviedb.org/3/tv/top_rated';
 $params = ['api_key' => $api_key];
@@ -40,4 +41,5 @@ if ($response !== false) {
 } else {
     echo "Error fetching data from API\n";
 }
+*/
 ?>

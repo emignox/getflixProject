@@ -4,16 +4,16 @@ header('Access-Control-Allow-Methods: GET, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type: application/json');
 header('Access-Control-Allow-Credentials: true');
 
-//include 'db_connection.php';
+require 'db_connection.php';
 
-/* if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
-    $seriesID = $id;
+    $serieID = $id;
 
     $stmt = $conn->prepare("SELECT * FROM series WHERE id = :id");
-    $stmt->bindParam(':id', $seriesId);
+    $stmt->bindParam(':id', $serieID);
 
     try {
         $stmt->execute();
@@ -33,8 +33,9 @@ header('Access-Control-Allow-Credentials: true');
     // Invalid request
     http_response_code(400);
     echo json_encode(["error" => "Invalid request"]);
-}*/
+}
 
+/*
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit; 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -72,4 +73,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 } else {
     echo json_encode(["message" => "Invalid request method"]);
 }
+*/
 ?>

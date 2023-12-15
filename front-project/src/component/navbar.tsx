@@ -150,14 +150,14 @@ useEffect(() => {
                     key={index}
                     onClick={() => { /* ... */ }}>
                       {("title" in item) ? (
-                        <Link key={item.id} to={`/movies/watch/${item.id}`} className='card movie-link'>
-                          <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.title} className='img' />
+                        <Link key={item.id} to={`/movie/${item.id}`} className='card movie-link'>
+                          <img src={`https://image.tmdb.org/t/p/w780${item.poster_path}`} alt={item.title} className='img' />
                           <h5 className='movie-title'>{item.title}</h5>
                           <p className='rating'>Rating: {renderStars(item.vote_average)}</p>  
                         </Link>
                       ) : (
-                        <Link key={item.id} to={`/series/watch/${item.id}`} className='card series-link'>
-                          <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.name} className='img' />
+                        <Link key={item.id} to={`/serie/${item.id}`} className='card series-link'>
+                          <img src={`https://image.tmdb.org/t/p/w780${item.poster_path}`} alt={item.name} className='img' />
                           <h5 className='series-title'>{item.name}</h5>
                           <p className='rating'>Rating: {renderStars(item.vote_average)}</p>
                         </Link>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import './top_rated.css';
 import { Link } from 'react-router-dom';
@@ -6,10 +6,8 @@ import { Link } from 'react-router-dom';
 interface Movie {
   id: number;
   title: string;
-  overview: string;
   poster_path: string;
-  release_date: string;
-  vote_average: number;
+  rating: number;
 }
 
 function TopRatedMovies() {
@@ -17,17 +15,21 @@ function TopRatedMovies() {
   const scrollContainerRef = useRef(null);
 
   useEffect(() => {
+    const apiUrl = 'http://localhost:8888/getflixProject/api/top_rated_movies.php';
     const fetchData = async () => {
-      const result = await axios.get(
-        'https://api.themoviedb.org/3/movie/top_rated',
-        {
-          params: {
-            api_key: '01fd56a673d7b722de210fadfb094f1f',
-          },
+      try {
+        const response = await axios.get(apiUrl);
+        const data = response.data;
+        //console.log('Response data:', data);
+        if (data && data.top_rated_movies) { // Check if data.top_rated_movies exists
+          //console.log(data.top_rated_movies);
+          setMovies(data.top_rated_movies); // Set data.top_rated_movies as the movies
+        } else {
+          console.error('Invalid data structure received from the server');
         }
-      );
-  
-      setMovies(result.data.results);
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
     };
   
     fetchData();
@@ -72,7 +74,7 @@ return (
           <div className='overlay-1'></div>
           <img className='img-top' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
           <h2 className='h-top'>{movie.title}</h2>
-          <p className='p-top'>{renderStars(movie.vote_average)}</p>
+          <p className='p-top'>{renderStars(movie.rating)}</p>
         </div>
       </Link>
     ))}
