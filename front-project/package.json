@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "deploy": "pnpm run build  && gh-pages -d dist",
+    "build": "cd getflixProject/front-project && tsc && vite build",
+    "deploy": "cd getflixProject/front-project && pnpm run build && gh-pages -d dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
