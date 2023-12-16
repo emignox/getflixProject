@@ -1,3 +1,6 @@
+
+
+
 import "./navbar.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -106,15 +109,16 @@ useEffect(() => {
           <span className="streamify mx-3">Streamify</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" className="rounded-5 mx-3 p-3 border" style={{ backgroundColor: "rgba(83, 187, 144, 0.7)" }} />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+        <Navbar.Collapse id="navbarScroll" role='navigation'>
+          {/* <Nav*/}
+          <Nav className="me-auto my-2 my-lg-0 bg-transparent" style={{ maxHeight: "100px" }} navbarScroll>
             <Nav.Link className="dim mx-3" href="/home" style={{ color: "#53bb90" }}>
               HOME
             </Nav.Link>
             <Nav.Link className="dim mx-3" href="/movies" style={{ color: "#53bb90" }}>
               MOVIES
             </Nav.Link>
-            <Nav.Link className="dim mx-3" href="/series" style={{ color: "#53bb90" }}>
+            <Nav.Link className="dim mx-3  bg-transparent" href="/series" style={{ color: "#53bb90" }}>
               SERIES
             </Nav.Link>
             <Nav.Link className="dim mx-3 " href="/upcoming" style={{ color: "#53bb90" }}>
@@ -135,6 +139,7 @@ useEffect(() => {
                 <button type="button" className="closeSearch"
                   onClick={() => {
                     setSearch("");
+                    if (searchRef.current)
                     searchRef.current.value = "";
                   }}
                 >

@@ -181,9 +181,9 @@ font-family: 'Zen Maru Gothic', serif;
   }
 }
 
-
-.dim:hover,
-.dim:focus {
-  background-color: transparent;
-  color: #53bb90;
-}
+  .dim:hover,
+  .dim:focus {
+    background-color: transparent;
+    color: #53bb90;
+  }
+ 

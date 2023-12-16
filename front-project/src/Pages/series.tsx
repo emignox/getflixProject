@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Navbar from '../component/navbar';
 import Footer from '../component/footer';
 
-interface serie {
+interface Serie {
   id: number;
   name: string;
   overview: string;
@@ -15,20 +15,16 @@ interface serie {
   vote_average: number;
 }
 
-function series() {
-  const [series, setSeries] = useState<serie[]>([]);
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
+function Series() {
+  const [series, setSeries] = useState<Serie[]>([]);
 
   useEffect(() => {
     const apiUrl = 'http://localhost:8888/getflixProject/api/get_series.php';
-  
 
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl);
         const data = response.data;
-        //console.log('Response data:', data);
         if (data && data.series) {
           setSeries(data.series);
         } else {
@@ -43,8 +39,8 @@ function series() {
   }, []);
 
   const renderStars = (rating: number) => {
-    const roundedRating = Math.round(rating); // Arrondir à l'entier le plus proche
-    const starCount = Math.floor(roundedRating / 2); // Divise par 2 pour obtenir un maximum de 5 étoiles
+    const roundedRating = Math.round(rating);
+    const starCount = Math.floor(roundedRating / 2);
   
     const fullStars = Array.from({ length: starCount }, (_, index) => (
       <span key={index} className="gold-star">&#9733;</span>
@@ -53,14 +49,13 @@ function series() {
     return [fullStars];
   };
   
-  
   return (
     <>
     <Navbar />
-    <body className='bodySerie'>
+    <div className='bodySerie'>
       <h1 className='mov titreSeries' style={{ textAlign: 'center', marginTop: '2rem' }}>Series</h1>
       <Container fluid>
-        <Row xs={1} sm={2} md={3} lg={4} xl={5} className='cardSeries g-4'>
+        <Row xs={1} sm={2} md={3} lg={4} xl={5} className='g-4'>
           {series.map((serie) => (
             <Col key={serie.id}>
               <Link to={`/serie/${serie.id}`} className='card serie-link'>
@@ -72,12 +67,10 @@ function series() {
           ))}
         </Row>
       </Container>
-
-    </body>
+    </div>
     <Footer />
   </>
   );
 }
 
-
-export default series;
+export default Series;
