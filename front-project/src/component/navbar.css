@@ -54,9 +54,10 @@ font-family: 'Zen Maru Gothic', serif;
 .closeSearch {
   border: none;
   border-radius: 50px;
-  background-color: #53bb90;
-  color: #fff;
+  background-color: transparent;
+  color: #000000;
   position: relative;
+  bottom: 2px;
   right: 37px;
 }
 

@@ -136,7 +136,7 @@ useEffect(() => {
                 ref={searchRef}
               />
               {search.length > 0 && (
-                <button type="button" className="closeSearch"
+                <button type="button" className="closeSearch "
                   onClick={() => {
                     setSearch("");
                     if (searchRef.current)
