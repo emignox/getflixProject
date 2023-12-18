@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import Navbar from './component/navbar'
 import Login from './Pages/login';
 import Signup from './Pages/signup';
@@ -77,6 +77,8 @@ export default App;
 function App() {
   return (
     <>
+    <BrowserRouter basename="/getflixProject/front-project">
+
       <Router>
         <Routes>
           <Route element={<PrivateRoute/>}>
@@ -119,6 +121,7 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />          
         </Routes>
       </Router>
+      </BrowserRouter>
     </>
   )
 }
