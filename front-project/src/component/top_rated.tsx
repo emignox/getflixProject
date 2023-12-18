@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import  { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import './top_rated.css';
 import { Link } from 'react-router-dom';
+import { useCallback } from 'react';
+
 
 interface Serie {
   id: number;
@@ -12,7 +14,8 @@ interface Serie {
 
 function TopRatedSeries() {
   const [series, setSeries] = useState<Serie[]>([]);
-  const scrollContainerRef = useRef(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null); // Specifica il tipo di riferimento
+
 
   useEffect(() => {
     const apiUrl = 'http://localhost:8888/getflixProject/api/top_rated_series.php';
@@ -35,23 +38,24 @@ function TopRatedSeries() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const handleWheel = (e) => {
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.scrollLeft += e.deltaY;
-      }
+  const handleWheel = useCallback((e: WheelEvent) => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft += e.deltaY;
     }
-
+  }, []);
+  
+  useEffect(() => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.addEventListener('wheel', handleWheel);
     }
-
+  
     return () => {
       if (scrollContainerRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         scrollContainerRef.current.removeEventListener('wheel', handleWheel);
       }
     }
-  }, []);
+  }, [handleWheel]);
 
   const renderStars = (rating: number) => {
     const roundedRating = Math.round(rating);

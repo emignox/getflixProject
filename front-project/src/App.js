@@ -1,11 +1,12 @@
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './component/navbar'
+import Navbar from './component/navbar';
 import Login from './Pages/login';
 import Signup from './Pages/signup';
 import Jumbotron from './component/jumbotron';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Presentation from './Pages/streamify';
-import Footer from './component/footer'
+import Footer from './component/footer';
 import Privacy from './Pages/privacy';
 import Home from './Pages/home';
 import Profile from './Pages/profile';
@@ -25,7 +26,6 @@ import Upcoming from './Pages/upcoming';
 import AccessData from './Pages/change_access_data';
 import Subscribe from './Pages/subscribe';
 import PrivateRoute from './component/PrivateRoute';
-
 /*
 function App() {
   return (
@@ -69,59 +69,8 @@ function App() {
 
 export default App;
 */
-
-
 /*  Private routes  */
-
-
 function App() {
-  return (
-    <>
-
-      <Router basename='/getflixProject'>
-        <Routes>
-          <Route element={<PrivateRoute/>}>
-              <Route path="getflixProject/streamify" element={<Presentation/>} />
-            <Route path='getflixProject/home' element={<Home/>}/>
-            <Route path="getflixProject/profile" element={<Profile />} />
-            <Route path="getflixProject/privacy" element={<Privacy />} />
-            <Route path="getflixProject/footer" element={<Footer />} />
-            <Route  path='getflixProject/movies' element={ <Movies /> } />
-            <Route path="getflixProject/movie/:id" element={ <SingleMovie /> } />
-            <Route path="getflixProject/upcoming" element={<Upcoming /> } />
-            <Route path='getflixProject/series' element={<Series /> } />
-            <Route path="getflixProject/serie/:id" element={ <SingleSerie /> } />    
-            <Route path="getflixProject/serie/trailer/:id" element={ <TrailerPage /> } />
-            <Route path="getflixProject/top_rated" element={<TopRatedSeries/>} />
-            <Route path="getflixProject/top_rated_movies" element={<TopRatedMovies/>} />
-            <Route path="getflixProject/update-data/:username" element={<AccessData/>} />
-            <Route path="getflixProject/subscribe" element={<Subscribe /> } />
-            <Route path="getflixProject/slider" element={<Slider />} />
-            <Route path="getflixProject/serie_slider" element={<SeriesSlider />} />
-            <Route path="getflixProject/movie/trailer/:id" element={ <TrailerPage /> } />
-
-
-
-            
-
-
-            <Route path="/other" element={
-              <>
-                <Navbar />
-                <Jumbotron />
-              </>
-            } />
-          </Route>
-
-          <Route path="/" element={<Presentation />} />
-          <Route path="/getflixProject/login" element={<Login />} />
-          <Route path="/getflixProject/signup" element={<Signup />} />
-          <Route path="/getflixProject/forgot-password" element={<ForgotPassword />} />
-          <Route path="/getflixProject/reset-password" element={<ResetPassword />} />          
-        </Routes>
-      </Router>
-    </>
-  )
+    return (_jsx(_Fragment, { children: _jsx(Router, { basename: '/getflixProject', children: _jsxs(Routes, { children: [_jsxs(Route, { element: _jsx(PrivateRoute, {}), children: [_jsx(Route, { path: "/getflixProject/streamify", element: _jsx(Presentation, {}) }), _jsx(Route, { path: '/getflixProject/home', element: _jsx(Home, {}) }), _jsx(Route, { path: "/getflixProject/profile", element: _jsx(Profile, {}) }), _jsx(Route, { path: "/getflixProject/privacy", element: _jsx(Privacy, {}) }), _jsx(Route, { path: "/getflixProject/footer", element: _jsx(Footer, {}) }), _jsx(Route, { path: '/getflixProject/movies', element: _jsx(Movies, {}) }), _jsx(Route, { path: "/getflixProject/movie/:id", element: _jsx(SingleMovie, {}) }), _jsx(Route, { path: "/getflixProject/upcoming", element: _jsx(Upcoming, {}) }), _jsx(Route, { path: '/getflixProject/series', element: _jsx(Series, {}) }), _jsx(Route, { path: "/getflixProject/serie/:id", element: _jsx(SingleSerie, {}) }), _jsx(Route, { path: "/getflixProject/serie/trailer/:id", element: _jsx(TrailerPage, {}) }), _jsx(Route, { path: "/getflixProject/top_rated", element: _jsx(TopRatedSeries, {}) }), _jsx(Route, { path: "/getflixProject/top_rated_movies", element: _jsx(TopRatedMovies, {}) }), _jsx(Route, { path: "/getflixProject/update-data/:username", element: _jsx(AccessData, {}) }), _jsx(Route, { path: "/getflixProject/subscribe", element: _jsx(Subscribe, {}) }), _jsx(Route, { path: "/getflixProject/slider", element: _jsx(Slider, {}) }), _jsx(Route, { path: "/getflixProject/serie_slider", element: _jsx(SeriesSlider, {}) }), _jsx(Route, { path: "/getflixProject/movie/trailer/:id", element: _jsx(TrailerPage, {}) }), _jsx(Route, { path: "/other", element: _jsxs(_Fragment, { children: [_jsx(Navbar, {}), _jsx(Jumbotron, {})] }) })] }), _jsx(Route, { path: "/", element: _jsx(Presentation, {}) }), _jsx(Route, { path: "/getflixProject/login", element: _jsx(Login, {}) }), _jsx(Route, { path: "/getflixProject/signup", element: _jsx(Signup, {}) }), _jsx(Route, { path: "/getflixProject/forgot-password", element: _jsx(ForgotPassword, {}) }), _jsx(Route, { path: "/getflixProject/reset-password", element: _jsx(ResetPassword, {}) })] }) }) }));
 }
-
 export default App;

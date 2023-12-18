@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'; 
+import  { useState, useEffect, useRef } from 'react'; 
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './slider.css';
+import { useCallback } from 'react';
+
 
 interface Movie {
   id: number;
@@ -14,7 +16,8 @@ interface Movie {
 
 function MovieSlider() {
     const [movies, setMovies] = useState<Movie[]>([]);
-    const scrollContainerRef = useRef(null);
+    const scrollContainerRef = useRef<HTMLDivElement | null>(null); // Specifica il tipo di riferimento
+
 
     useEffect(() => {
       const apiUrl = 'http://localhost:8888/getflixProject/api/get_movies.php';
@@ -35,24 +38,27 @@ function MovieSlider() {
       fetchData();
     }, []);
 
-    useEffect(() => {
-      const handleWheel = (e:string) => {
-        if (scrollContainerRef.current) {
-          scrollContainerRef.current.scrollLeft += e.deltaY;
-        }
+   
+   
+    
+    const handleWheel = useCallback((e: WheelEvent) => {
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.scrollLeft += e.deltaY;
       }
-
+    }, []);
+    
+    useEffect(() => {
       if (scrollContainerRef.current) {
         scrollContainerRef.current.addEventListener('wheel', handleWheel);
       }
-
+    
       return () => {
         if (scrollContainerRef.current) {
+          // eslint-disable-next-line react-hooks/exhaustive-deps
           scrollContainerRef.current.removeEventListener('wheel', handleWheel);
         }
       }
-    }, []);
-
+    }, [handleWheel]);
     const renderStars = (rating: number) => {
       const roundedRating = Math.round(rating);
       const starCount = Math.floor(roundedRating / 2);
