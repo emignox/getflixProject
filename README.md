@@ -3,7 +3,7 @@
 Streamify is an streaming website that transforms the way audiences engage with TV shows and movies by offering a captivating collection of trailers. Inspired by the excitement of movie previews and the anticipation of upcoming episodes, Streamify is a platform that revolves around providing users with a sneak peek into the world of entertainment.
 
 ## Live Website
-![live website](/Images/streamify.png)
+![live website](/Images/screenshot.jpg)
 ### Link:
 
 ## Used Technologies
@@ -33,6 +33,12 @@ The platform boasts a user-friendly interface that makes browsing and discoverin
 
 **4. Trailers in HD Quality:**
 Enjoy high-definition trailers that showcase the visual and audio excellence of upcoming TV shows and movies. Streamify ensures that users get a true cinematic experience, even when watching trailers.
+
+## Team 
+- Marine
+- Eliott
+- Emanuele
+- Yannick
 
 ## Development
 
