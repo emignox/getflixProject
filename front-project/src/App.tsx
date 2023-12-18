@@ -81,24 +81,24 @@ function App() {
       <Router basename='/getflixProject'>
         <Routes>
           <Route element={<PrivateRoute/>}>
-              <Route path="/streamify" element={<Presentation/>} />
-            <Route path='/home' element={<Home/>}/>
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/footer" element={<Footer />} />
-            <Route  path='/movies' element={ <Movies /> } />
-            <Route path="/movie/:id" element={ <SingleMovie /> } />
-            <Route path="/upcoming" element={<Upcoming /> } />
-            <Route path='/series' element={<Series /> } />
-            <Route path="/serie/:id" element={ <SingleSerie /> } />    
-            <Route path="/serie/trailer/:id" element={ <TrailerPage /> } />
-            <Route path="/top_rated" element={<TopRatedSeries/>} />
-            <Route path="/top_rated_movies" element={<TopRatedMovies/>} />
-            <Route path="/update-data/:username" element={<AccessData/>} />
-            <Route path="/subscribe" element={<Subscribe /> } />
-            <Route path="/slider" element={<Slider />} />
-            <Route path="/serie_slider" element={<SeriesSlider />} />
-            <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
+              <Route path="/getflixProject/streamify" element={<Presentation/>} />
+            <Route path='/getflixProject/home' element={<Home/>}/>
+            <Route path="/getflixProject/profile" element={<Profile />} />
+            <Route path="/getflixProject/privacy" element={<Privacy />} />
+            <Route path="/getflixProject/footer" element={<Footer />} />
+            <Route  path='/getflixProject/movies' element={ <Movies /> } />
+            <Route path="/getflixProject/movie/:id" element={ <SingleMovie /> } />
+            <Route path="/getflixProject/upcoming" element={<Upcoming /> } />
+            <Route path='/getflixProject/series' element={<Series /> } />
+            <Route path="/getflixProject/serie/:id" element={ <SingleSerie /> } />    
+            <Route path="/getflixProject/serie/trailer/:id" element={ <TrailerPage /> } />
+            <Route path="/getflixProject/top_rated" element={<TopRatedSeries/>} />
+            <Route path="/getflixProject/top_rated_movies" element={<TopRatedMovies/>} />
+            <Route path="/getflixProject/update-data/:username" element={<AccessData/>} />
+            <Route path="/getflixProject/subscribe" element={<Subscribe /> } />
+            <Route path="/getflixProject/slider" element={<Slider />} />
+            <Route path="/getflixProject/serie_slider" element={<SeriesSlider />} />
+            <Route path="/getflixProject/movie/trailer/:id" element={ <TrailerPage /> } />
 
 
 
@@ -114,10 +114,10 @@ function App() {
           </Route>
 
           <Route path="/" element={<Presentation />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />          
+          <Route path="/getflixProject/login" element={<Login />} />
+          <Route path="/getflixProject/signup" element={<Signup />} />
+          <Route path="/getflixProject/forgot-password" element={<ForgotPassword />} />
+          <Route path="/getflixProject/reset-password" element={<ResetPassword />} />          
         </Routes>
       </Router>
     </>
