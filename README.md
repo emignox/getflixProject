@@ -5,7 +5,7 @@ Streamify is an streaming website that transforms the way audiences engage with 
 ## Live Website
 ![live website](/Images/streamify.png)
 ### Link:
-
+[Streamify website](https://yannick2019.github.io/streamify/)
 ## Used Technologies
 ### Frontend:
 - HTML
@@ -35,5 +35,15 @@ The platform boasts a user-friendly interface that makes browsing and discoverin
 Enjoy high-definition trailers that showcase the visual and audio excellence of upcoming TV shows and movies. Streamify ensures that users get a true cinematic experience, even when watching trailers.
 
 ## Development
-
+`git clone git@github.com:emignox/getflixProject.git`
+### Frontend
+- `cd getflixProject`
+- `cd front-project`
+- `pnpm install ...to install dependencies`
+- `pnpm run dev ... to start developing`
+### Backend
+- `cd getflixProject`
+- `cd api`
+- `php -S localhost:${PORT} or use MAMP/XAMPP/WAMP`
+  
 ### Copyright - 2023
