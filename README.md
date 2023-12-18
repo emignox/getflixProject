@@ -1,10 +1,13 @@
 # Streamify
+
 ## Description
 Streamify is an streaming website that transforms the way audiences engage with TV shows and movies by offering a captivating collection of trailers. Inspired by the excitement of movie previews and the anticipation of upcoming episodes, Streamify is a platform that revolves around providing users with a sneak peek into the world of entertainment.
 
-## Live Website
-![live website](/Images/streamify.png)
-### Link:
+## Preview
+![screenshot](https://github.com/emignox/getflixProject/blob/develop/images/streamify.png)
+
+### Live: 
+[See live](https://yannick2019.github.io/streamify/)
 
 ## Used Technologies
 ### Frontend:
@@ -17,7 +20,7 @@ Streamify is an streaming website that transforms the way audiences engage with 
 - Axios
 ### Backend:
 - PHP
-### Database:
+#### Database:
 - phpMyAdmin
 - MySQL
 
@@ -35,5 +38,15 @@ The platform boasts a user-friendly interface that makes browsing and discoverin
 Enjoy high-definition trailers that showcase the visual and audio excellence of upcoming TV shows and movies. Streamify ensures that users get a true cinematic experience, even when watching trailers.
 
 ## Development
-
+`git clone git@github.com:emignox/getflixProject.git`
+### Frontend
+- `cd getflixProject`
+- `cd front-project`
+- `pnpm install ...to install dependencies`
+- `pnpm run dev ... to start developing`
+### Backend
+- `cd getflixProject`
+- `cd api`
+- `php -S localhost:${PORT} or use MAMP/XAMPP/WAMP`
+  
 ### Copyright - 2023
