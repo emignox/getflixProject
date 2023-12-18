@@ -80,7 +80,7 @@ function App() {
       <Router>
         <Routes>
           <Route element={<PrivateRoute/>}>
-              <Route path="/stramify" element={<Presentation/>} />
+              <Route path="/streamify" element={<Presentation/>} />
             <Route path='/home' element={<Home/>}/>
             <Route path="/profile" element={<Profile />} />
             <Route path="/privacy" element={<Privacy />} />
@@ -98,6 +98,7 @@ function App() {
             <Route path="/slider" element={<Slider />} />
             <Route path="/serie_slider" element={<SeriesSlider />} />
             <Route path="/movie/trailer/:id" element={ <TrailerPage /> } />
+
 
 
             
