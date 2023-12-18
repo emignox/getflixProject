@@ -31,4 +31,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./front-project/dist  # sostituisci con il percorso della tua directory di build se non è './dist'
+        publish_dir: / # sostituisci con il percorso della tua directory di build se non è './dist'
