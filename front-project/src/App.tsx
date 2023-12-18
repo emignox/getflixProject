@@ -78,7 +78,7 @@ function App() {
   return (
     <>
 
-      <Router>
+      <Router basename='/getflixProject'>
         <Routes>
           <Route element={<PrivateRoute/>}>
               <Route path="/streamify" element={<Presentation/>} />
