@@ -6,6 +6,8 @@ Streamify is an streaming website that transforms the way audiences engage with 
 ## Preview
 ![screenshot](https://github.com/emignox/getflixProject/blob/develop/images/screenshot.jpg)
 
+![screenshot2](https://github.com/emignox/getflixProject/blob/develop/images/screenshot2.png)
+
 ### Live: 
 [See live](https://yannick2019.github.io/streamify/)
 
@@ -13,18 +15,20 @@ Streamify is an streaming website that transforms the way audiences engage with 
 ## Used Technologies
 
 ### Frontend:
-- HTML
-- CSS
-- Bootstrap
-- Typescript
-- Vite
-- React
-- Axios
+- ![HTML](https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat)
+- ![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat)
+- ![Bootstrap](https://img.shields.io/badge/-Bootstrap-563D7C?logo=bootstrap&logoColor=white&style=flat)
+- ![Typescript](https://img.shields.io/badge/-Typescript-3178C6?logo=typescript&logoColor=white&style=flat)
+- ![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white&style=flat)
+- ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat)
+- ![Axios](https://img.shields.io/badge/-Axios-007ACC?style=flat)
+
 ### Backend:
-- PHP
+- ![PHP](https://img.shields.io/badge/-PHP-777BB4?logo=php&logoColor=white&style=flat)
+
 #### Database:
-- phpMyAdmin
-- MySQL
+- ![phpMyAdmin](https://img.shields.io/badge/-phpMyAdmin-FF8300?logo=phpmyadmin&logoColor=white&style=flat)
+- ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?logo=mysql&logoColor=white&style=flat)
 
 ## Key features
 **1. Trailer-Centric Experience:**
@@ -40,10 +44,10 @@ The platform boasts a user-friendly interface that makes browsing and discoverin
 Enjoy high-definition trailers that showcase the visual and audio excellence of upcoming TV shows and movies. Streamify ensures that users get a true cinematic experience, even when watching trailers.
 
 ## Team 
-- Marine
-- Eliott
-- Emanuele
-- Yannick
+- [![Marine](https://img.shields.io/badge/Marine-GitHub-181717?logo=github&logoColor=white)](https://github.com/MarineVH)
+- [![Eliott](https://img.shields.io/badge/Eliott-GitHub-181717?logo=github&logoColor=white)](https://github.com/Eliott27)
+- [![Emanuele](https://img.shields.io/badge/Emanuele-GitHub-181717?logo=github&logoColor=white)](https://github.com/emignox)
+- [![Yannick](https://img.shields.io/badge/Yannick-GitHub-181717?logo=github&logoColor=white)](https://github.com/yannick2019)
 
 ## Development
 `git clone git@github.com:emignox/getflixProject.git`
