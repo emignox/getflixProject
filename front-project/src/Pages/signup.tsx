@@ -129,7 +129,7 @@ function Signup() {
               <button className='btn'>Sign Up</button>
             </div>
             <p className='text-end mt-2'>
-              Already Registered? <Link to={'/streamify/login'} className='link_login ms-2'>Log in</Link>
+              Already Registered? <Link to={'/login'} className='link_login ms-2'>Log in</Link>
             </p>
             {registrationMessage && (
               <p className='text-center text-success'>{registrationMessage}</p>
