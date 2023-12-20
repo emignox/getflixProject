@@ -111,7 +111,7 @@ const handleLogin = async (e: React.FormEvent) => {
               </div>
               <div>
               <p className='text-end mt-2'>
-                Forgot <Link className='link_login' to={'/streamify/forgot-password'}>Password?</Link>
+                Forgot <Link className='link_login' to={'/forgot-password'}>Password?</Link>
               </p>
               </div>
               <div>

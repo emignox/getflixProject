@@ -94,7 +94,7 @@ function App() {
             <Route path="/serie/trailer/:id" element={ <TrailerPage /> } />
             <Route path="/top_rated" element={<TopRatedSeries/>} />
             <Route path="/top_rated_movies" element={<TopRatedMovies/>} />
-            <Route path="/update-data/:username" element={<AccessData/>} />
+            <Route path="/change_access_data/:username" element={<AccessData/>} />
             <Route path="/subscribe" element={<Subscribe /> } />
             <Route path="/slider" element={<Slider />} />
             <Route path="/serie_slider" element={<SeriesSlider />} />
