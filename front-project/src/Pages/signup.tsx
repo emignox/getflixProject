@@ -1,7 +1,6 @@
 // import { Link } from 'react-router-dom';
 import { FormEvent } from 'react';
 import { ChangeEvent, useState } from 'react';
-import axios from 'axios';
 import './login_singup.css';
 
 function Signup() {
@@ -25,10 +24,18 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8888/getflixProject/api/registration.php', formData);
-      console.log(response.data);
+      const response = await fetch('https://streamify-api.000webhostapp.com/registration.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData),
+      });
 
-      if (response.data.status === '200') {
+      const data = await response.json();
+      console.log(data);
+
+      if (data.status === '200') {
         setRegistrationMessage('Successfully registered!');
 
         // Use setTimeout for redirection after a delay (e.g., 2000 milliseconds)
@@ -133,3 +140,4 @@ function Signup() {
 }
 
 export default Signup
+

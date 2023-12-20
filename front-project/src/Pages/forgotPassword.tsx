@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import './reset_forgot.css';
 
 const ForgotPassword = () => {
@@ -10,11 +9,19 @@ const ForgotPassword = () => {
   const handleForgotPassword = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.post('http://localhost:8888/getflixProject/api/forgot_password.php', {
-        email: email,
+      const response = await fetch('https://streamify-api.000webhostapp.comforgot_password.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+        }),
       });
 
-      if (response.data.success) {
+      const data = await response.json();
+
+      if (data.success) {
         setMessage('Password reset instructions sent to your email.');
       } else {
         setMessage('Please check your email. If you did not receive email, try again.');
@@ -55,11 +62,9 @@ const ForgotPassword = () => {
         <div className='col-md-6 d-none d-md-flex align-items-center h-100'>
             <img src='assets/forgot.svg' alt='Description' className='img-fluid' />
         </div>
-  </div>
-</div>
-
+      </div>
+    </div>
   );
 };
 
 export default ForgotPassword;
-

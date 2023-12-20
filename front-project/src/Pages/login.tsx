@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
 
 function Login() {
 
@@ -15,22 +15,30 @@ function Login() {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
       // Token exists, navigate to home or the appropriate authenticated route
-      navigate('/home');
+      navigate('/streamify/home');
     }
   }, [navigate]);
 
   // Function to handle login
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    try {
-      const response = await axios.post('http://localhost:8888/getflixProject/api/login.php', {
+  try {
+    const response = await fetch('https://streamify-api.000webhostapp.com/login.php', {
+      method: 'POST',
+      mode: "cors",
+      credentials: "omit",
+      body: JSON.stringify({
         username: username,
         password: password,
-      });
+      }),
+    });
 
-      if (response.data && response.data.message === 'Connexion réussie') {
-        const { token, username, role } = response.data;
+    if (response.ok) {
+      const data = await response.json();
+
+      if (data && data.message === 'Connexion réussie') {
+        const { token, username, role } = data;
 
         // Store the token and user information in local storage
         localStorage.setItem('token', token);
@@ -40,14 +48,17 @@ function Login() {
         // Set the token in state for future use
         setToken(token);
 
-        navigate('/home');
+        navigate('/streamify/home');
       } else {
-        console.error('Login failed:', response.data.error);
+        console.error('Login failed:', data.error);
       }
-    } catch (error) {
-      console.error('Login error:', error);
+    } else {
+      console.error('Login failed:', response.statusText);
     }
-  };
+  } catch (error) {
+    console.error('Login error:', error);
+  }
+};
 
   // Function to handle logout
   const handleLogout = () => {
