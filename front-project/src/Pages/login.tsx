@@ -72,7 +72,7 @@ const handleLogin = async (e: React.FormEvent) => {
     setToken('');
 
     // Navigate to the login page or another appropriate route
-    navigate('/streamify/login');
+    navigate('/login');
   };
 
   return (
@@ -116,7 +116,7 @@ const handleLogin = async (e: React.FormEvent) => {
               </div>
               <div>
                 <p> If you don't have a account you can
-                <Link to={'/streamify/signup'} className='link_login ms-2'>
+                <Link to={'/signup'} className='link_login ms-2'>
                   Register here
                 </Link>
               </p>
