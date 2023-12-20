@@ -1,7 +1,8 @@
+// import { Link } from 'react-router-dom';
 import { FormEvent } from 'react';
 import { ChangeEvent, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './login_singup.css';
-import { Link, useNavigate } from 'react-router-dom'; // Aggiungi useNavigate qui
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -10,12 +11,11 @@ function Signup() {
     lastname: '',
     email: '',
     password: '',
-    role: 'user'
+    role: 'user',
   });
 
   const [registrationMessage, setRegistrationMessage] = useState('');
-
-  const navigate = useNavigate(); // Chiama useNavigate qui
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,38 +28,39 @@ function Signup() {
     try {
       const response = await fetch('https://streamify-api.000webhostapp.com/registration.php', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        mode: "cors",
+        credentials: "omit",
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-      console.log(data);
+      if (response.ok) {
+        const data = await response.json();
 
-      if (data.status === '200') {
-        setRegistrationMessage('Successfully registered!');
+        if (data.status === '200') {
+          setRegistrationMessage('Successfully registered!');
 
-        // Use setTimeout for redirection after a delay (e.g., 2000 milliseconds)
-        setTimeout(() => {
-          navigate('/login'); // Usa navigate al posto di window.location.href
-        }, 2000);
+          // Use setTimeout for redirection after a delay (e.g., 2000 milliseconds)
+          setTimeout(() => {
+            navigate('/streamify/login');
+          }, 2000);
+        } else {
+          setRegistrationMessage('Registration failed. Please try again.');
+        }
       } else {
-        setRegistrationMessage('Registration failed. Please try again.');
+        console.error('Registration failed:', response.statusText);
       }
     } catch (error) {
       console.error('Error during registration:', error);
     }
   };
 
-
   return (
   <div className="overflow-hidden">
     <div className='signup_body template d-flex justify-content-center align-items-center vh-100'>
-    <div className='col-md-6 col-12 d-flex flex-column h-100'>
-            <div className='signup_card p-5 flex-fill'>
+      <div className='col-md-6 col-12 d-flex flex-column h-100'>
+        <div className='signup_card p-5 flex-fill'>
           <form className='h-100 d-flex flex-column justify-content-center' onSubmit={handleSubmit}>
-            <h3 className='text-center'>Sign Up</h3>
+            <h1 className="fw-bold pol text-center pb-4">Sign up</h1>
             <div className='mb-2'>
               <label htmlFor='username'>Username</label>
               <input
@@ -128,7 +129,7 @@ function Signup() {
               <button className='btn'>Sign Up</button>
             </div>
             <p className='text-end mt-2'>
-              Already Registered <Link className='link_login' to={'/login'}>Login</Link>
+              Already Registered? <Link to={'/streamify/login'} className='link_login ms-2'>Log in</Link>
             </p>
             {registrationMessage && (
               <p className='text-center text-success'>{registrationMessage}</p>
@@ -143,4 +144,3 @@ function Signup() {
 }
 
 export default Signup
-

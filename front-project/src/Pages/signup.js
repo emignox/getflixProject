@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import './login_singup.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Aggiungi useNavigate qui
 function Signup() {
     const [formData, setFormData] = useState({
         username: '',
@@ -12,6 +12,7 @@ function Signup() {
         role: 'user'
     });
     const [registrationMessage, setRegistrationMessage] = useState('');
+    const navigate = useNavigate(); // Chiama useNavigate qui
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -32,7 +33,7 @@ function Signup() {
                 setRegistrationMessage('Successfully registered!');
                 // Use setTimeout for redirection after a delay (e.g., 2000 milliseconds)
                 setTimeout(() => {
-                    window.location.href = '/login';
+                    navigate('/login'); // Usa navigate al posto di window.location.href
                 }, 2000);
             }
             else {
