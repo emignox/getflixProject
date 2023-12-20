@@ -1,7 +1,7 @@
-// import { Link } from 'react-router-dom';
 import { FormEvent } from 'react';
 import { ChangeEvent, useState } from 'react';
 import './login_singup.css';
+import { Link, useNavigate } from 'react-router-dom'; // Aggiungi useNavigate qui
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -14,6 +14,8 @@ function Signup() {
   });
 
   const [registrationMessage, setRegistrationMessage] = useState('');
+
+  const navigate = useNavigate(); // Chiama useNavigate qui
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -40,7 +42,7 @@ function Signup() {
 
         // Use setTimeout for redirection after a delay (e.g., 2000 milliseconds)
         setTimeout(() => {
-          window.location.href = '/login';
+          navigate('/login'); // Usa navigate al posto di window.location.href
         }, 2000);
       } else {
         setRegistrationMessage('Registration failed. Please try again.');
@@ -49,6 +51,7 @@ function Signup() {
       console.error('Error during registration:', error);
     }
   };
+
 
   return (
   <div className="overflow-hidden">
@@ -125,7 +128,7 @@ function Signup() {
               <button className='btn'>Sign Up</button>
             </div>
             <p className='text-end mt-2'>
-              Already Registered? <a href='login' className='link_login ms-2'>Log in</a>
+              Already Registered <Link className='link_login' to={'/login'}>Login</Link>
             </p>
             {registrationMessage && (
               <p className='text-center text-success'>{registrationMessage}</p>

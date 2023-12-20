@@ -113,9 +113,7 @@ const handleLogin = async (e: React.FormEvent) => {
               </div>
               <div>
                 <p> If you don't have a account you can
-                <a href='signup' className='link_login ms-2'>
-                  Register here
-                </a>
+                <Link className='link_login' to={'/signup'}>register here </Link>
               </p>
               </div>
             </form>

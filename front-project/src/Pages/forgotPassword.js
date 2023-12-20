@@ -1,6 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
-import axios from 'axios';
 import './reset_forgot.css';
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -9,10 +8,17 @@ const ForgotPassword = () => {
     const handleForgotPassword = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.post('http://localhost:8888/getflixProject/api/forgot_password.php', {
-                email: email,
+            const response = await fetch('https://streamify-api.000webhostapp.comforgot_password.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                }),
             });
-            if (response.data.success) {
+            const data = await response.json();
+            if (data.success) {
                 setMessage('Password reset instructions sent to your email.');
             }
             else {

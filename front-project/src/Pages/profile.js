@@ -33,7 +33,7 @@ function FormTextExample() {
         // Fetch user data when the component mounts
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8888/getflixProject/api/get_user.php?username=${username}`);
+                const response = await axios.get(`https://streamify-api.000webhostapp.com/get_user.php?username=${username}`);
                 const data = response.data;
                 setUser({ ...data });
                 console.log(data);

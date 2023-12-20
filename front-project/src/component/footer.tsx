@@ -1,4 +1,5 @@
-import './footer.css';
+import "./footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -6,8 +7,7 @@ const Footer = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
-            <div className="d-flex">
-            </div>
+            <div className="d-flex"></div>
             <div className="d-flex justify-content-center">
               <button className="btn">
                 <i className="fab fa-facebook-f"></i>
@@ -21,31 +21,73 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
-            <p className="h5 mb-4" style={{ fontWeight: 600 }}>Streamify</p>
+            <p className="h5 mb-4" style={{ fontWeight: 600 }}>
+              Streamify
+            </p>
             <div className="cursor-pointer">
-              <li className="liste1"><a className="link" href="/privacy">Privacy Policy</a></li>
-              <li className="liste1"><a className="link" href="/">Cookies</a></li>
-              <li className="liste1"><a className="link" href="/profile">Profile</a></li>
+              <li className="liste1">
+                <Link className="" to="/privacy">
+                  Privacy policy
+                </Link>
+              </li>
+              <li className="liste1">
+               <Link to={'/'}>cookie</Link>
+              </li>
+              <li className="liste1">
+                <Link className="link" to="/profile">
+                  Profile
+                </Link>
+              </li>
             </div>
           </div>
           <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
-            <p className="h5 mb-4" style={{ fontWeight: 600 }}>Help</p>
+            <p className="h5 mb-4" style={{ fontWeight: 600 }}>
+              Help
+            </p>
             <div className="cursor-pointer">
-              <li className="liste1"><a className="link" href="/signup">Sign Up</a></li>
-              <li className="liste1"><a className="link" href="/login">Sign In</a></li>
+              <li className="liste1">
+                <Link className="link" to="/signup">
+                  Sign Up
+                </Link>
+              </li>
+              <li className="liste1">
+                <Link className="link" to="/login">
+                  Sign In
+                </Link>
+              </li>
             </div>
           </div>
           <div className="col-12 col-sm-6 col-md-3 mb-4 mt-4">
-            <p className="h5 mb-4" style={{ fontWeight: 600 }}>Pages</p>
+            <p className="h5 mb-4" style={{ fontWeight: 600 }}>
+              Pages
+            </p>
             <div className="cursor-pointer">
-              <li className="liste1"><a className="link" href="/home">Home</a></li>
-              <li className="liste1"><a className="link" href="/movies">Movie</a></li>
-              <li className="liste1"><a className="link" href="/series">Tv Show</a></li>
-              <li className="liste1"><a className="link" href="/upcoming">Upcoming</a></li>
+              <li className="liste1">
+                <Link className="link" to="/home">
+                  Home
+                </Link>
+              </li>
+              <li className="liste1">
+                <Link className="link" to="/movies">
+                  Movie
+                </Link>
+              </li>
+              <li className="liste1">
+                <Link className="link" to="/series">
+                  Tv Show
+                </Link>
+              </li>
+              <li className="liste1">
+                <Link className="link" to="/upcoming">
+                  Upcoming
+                </Link>
+              </li>
             </div>
           </div>
         </div>
-        <small className="text-center mt-5">&copy; Streamify, 2023. All rights reserved.</small>
+        <small className="text-center mt-5">
+          &copy; Streamify, 2023. All rights reserved.
+        </small>
       </div>
     </div>
   );
