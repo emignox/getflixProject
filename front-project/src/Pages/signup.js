@@ -32,7 +32,7 @@ function Signup() {
                     setRegistrationMessage('Successfully registered!');
                     // Use setTimeout for redirection after a delay (e.g., 2000 milliseconds)
                     setTimeout(() => {
-                        navigate('/streamify/login');
+                        navigate('/login');
                     }, 2000);
                 }
                 else {

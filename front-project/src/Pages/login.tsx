@@ -60,6 +60,7 @@ const handleLogin = async (e: React.FormEvent) => {
   }
 };
 
+
   // Function to handle logout
   const handleLogout = () => {
     // Clear the token and user information from local storage
@@ -71,7 +72,7 @@ const handleLogin = async (e: React.FormEvent) => {
     setToken('');
 
     // Navigate to the login page or another appropriate route
-    navigate('/login');
+    navigate('/streamify/login');
   };
 
   return (
@@ -80,7 +81,7 @@ const handleLogin = async (e: React.FormEvent) => {
         <div className='col-md-6 col-12 d-flex flex-column h-100'>
           <div className='signup_card p-5 flex-fill'>
             <form className='h-100 d-flex flex-column justify-content-center' onSubmit={handleLogin}>
-              <h3 className='text-center'>Log In</h3>
+              <h1 className="fw-bold pol text-center pb-4">Log in</h1>
               <div className='mb-2'>
                 <label htmlFor='username'>Username</label>
                 <input
@@ -89,6 +90,7 @@ const handleLogin = async (e: React.FormEvent) => {
                   className='form-control'
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  required
                 />
               </div>
               <div className='mb-2'>
@@ -99,6 +101,7 @@ const handleLogin = async (e: React.FormEvent) => {
                   className='form-control'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </div>
               <div className='mt-2 mb-2'>
@@ -108,12 +111,14 @@ const handleLogin = async (e: React.FormEvent) => {
               </div>
               <div>
               <p className='text-end mt-2'>
-                Forgot <Link className='link_login' to={'/forgot-password'}>Password?</Link>
+                Forgot <Link className='link_login' to={'/streamify/forgot-password'}>Password?</Link>
               </p>
               </div>
               <div>
                 <p> If you don't have a account you can
-                <Link className='link_login' to={'/signup'}>register here </Link>
+                <Link to={'/streamify/signup'} className='link_login ms-2'>
+                  Register here
+                </Link>
               </p>
               </div>
             </form>
